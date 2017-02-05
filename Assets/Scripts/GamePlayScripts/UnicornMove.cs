@@ -5,39 +5,18 @@ using UnityEngine.SceneManagement;
 
 public class UnicornMove : MonoBehaviour {
 
+	public static bool superMode;
+	public static int multiplier;
+
 	private Transform _myTransform;
 	private Rigidbody2D _myRigidbody;
-	public float speed;
-	public float turnSpeed;
+
 	public GameObject LoveSplode;
 	public GameObject LoveMeter;
 	public GameObject Camera;
 	public GameObject HappySplode;
-	public AudioClip Poof;
-	public AudioClip Love;
-	public bool travelingUp;
 	public GameObject HappyZone;
 	public GameObject HappyZoneUnicorn;
-	public Vector2 minUnicornPos;
-	public Vector2 maxUnicornPos;
-	public static bool superMode;
-
-	public bool bounds;
-	private bool gameEnding;
-	private bool slowingDown;
-	private bool stopInteraction;
-	private bool overtime;
-	private bool facingLeft;
-
-	private int happyObjectCount;
-	private int happyObjectMax;
-	//private float gameTimer;
-	//private float transitionTime;
-	//private float time;
-
-	public static int multiplier;
-	private int score;
-	private int currentIdentity;
 
 	public GameObject ScoreDisplay;
 	public GameObject MutiplierImageDisplay;
@@ -52,87 +31,128 @@ public class UnicornMove : MonoBehaviour {
 	public Sprite WaffleMultiplier;
 	public Sprite DonutMultiplier;
 
+	private bool travelingUp;
+	private bool gameEnding;
+	private bool slowingDown;
+	private bool stopInteraction;
+	private bool overtime;
+	private bool facingLeft;
 
-	// Use this for initialization
+	public float speed;
+	public float baseSpeed;
+	public float superModeBaseSpeed;
+	public float topSpeed;
+	public float turnSpeed;
+	public float baseTurnSpeed;
+	public float superModeBaseTurnSpeed;
+
+	private int happyObjectCount;
+	private int happyObjectMax;
+	private int score;
+	private int currentIdentity;
+
+	public AudioClip Poof;
+	public AudioClip Love;
+
+	public bool bounds;
+	public Vector2 minUnicornPos;
+	public Vector2 maxUnicornPos;
+
+	//debug slider for movement if usb screws up
+	public bool mouseMovement;
+	public float debugMovementSlider;
+	//
+
 	void Start () {
-		GameObject.FindGameObjectWithTag ("SoundManager").GetComponent<SoundManager> ().StartGameMusic ();
+
+		//allow you to start the scene without the SoundManager gameobject
+		if (GameObject.FindGameObjectWithTag ("SoundManager") != null) {
+			GameObject.FindGameObjectWithTag ("SoundManager").GetComponent<SoundManager> ().StartGameMusic ();
+		}
+		//initialize direction that player is facing for animator
 		facingLeft = true;
+
+		//start multiplier at 1 if player resets
 		multiplier = 1;
+
+		//how many object need to be made happy to end game
 		happyObjectMax = 14;
+
+		//reset number of happy objects to zero if player resets
 		happyObjectCount = 0;
-		//gameTimer = 60f;
-		//transitionTime = gameTimer;
+
+		//the type of candy that the unicorn wants to eat.  always starts on lollipop
 		currentIdentity = 0;
+
+		//reset direction be traveled if player resets
 		travelingUp = true;
+
+		//grabbing transforma dn ridgidbody for movement
 		_myRigidbody = GetComponent<Rigidbody2D> ();
 		_myTransform = GetComponent<Transform> ();
-		//StartCoroutine (FadeBackgroundIn ());
+
 	}
-	
-	// Update is called once per frame
+
 	void Update () {
+
+		//if the game is still going, adjust the players speed based on whether or not they are in supermode, and how high their multiplier is.
+		//if the player has madeeverything happy stop adjusting speed and end the game.
 		if (!gameEnding) {
-			if (speed < 13) {
+			if (speed < topSpeed) {
 				if (superMode) {
-					speed = 6f + multiplier / 10;
-					turnSpeed = 24f + multiplier / 10f;
+					speed = superModeBaseSpeed + multiplier / 10;
+					turnSpeed = superModeBaseTurnSpeed + multiplier / 10f;
 					;
 				} else {
-					speed = 4f + multiplier / 10f;
-					turnSpeed = 20f + multiplier / 10f;
+					speed = baseSpeed + multiplier / 10f;
+					turnSpeed = baseTurnSpeed + multiplier / 10f;
 				}
 			}
-		} else if (!slowingDown){
-			StartCoroutine (EndGameSlowdown ());
-			slowingDown = true;
+		} else {
+			//end the game
+			EndGame ();
 		}
+
+		//grab the input from the connected iphone
 		float move = Input.acceleration.x;
-		//float moveUp = Input.acceleration.y;
+
+		//used for moveing with mouse
+		if (mouseMovement) {
+			move = debugMovementSlider;
+		}
+
+
+		//flip the character sprite back and forth depending on which way the phone is tilted
 		if (Input.acceleration.x < 0 && !facingLeft && !gameEnding) {
 			Flip ();
 		} else if (Input.acceleration.x > 0 && facingLeft && !gameEnding) {
 			Flip ();
 		}
 
+		//change verticle velocity
 		if (travelingUp) {
 			_myRigidbody.velocity = new Vector2 (move * turnSpeed, speed);
 		} else {
 			_myRigidbody.velocity = new Vector2 (move * turnSpeed, -speed);
 		}
-
-		//added for controll
-		//_myRigidbody.velocity = new Vector2 (move * turnSpeed, moveUp * turnSpeed);
-		//added for control
-
+			
+		//if bounds is checked, constrain the unicorn to bounds specified in the inspector
 		if (bounds) {
 			_myTransform.position = new Vector2 (Mathf.Clamp (_myTransform.position.x, minUnicornPos.x, maxUnicornPos.x),
 				Mathf.Clamp (_myTransform.position.y, minUnicornPos.y, maxUnicornPos.y));
 		}
 
-		//if (gameTimer > 0) {
-		//	gameTimer -= Time.deltaTime;
-		//	if (gameTimer < 3.4f) {
-		//		GameTimerDisplay.GetComponent<Text> ().text = "" + Mathf.RoundToInt (gameTimer);
-		//	}
-//		} else if (!gameEnding && !superMode) {
-//			GameTimerDisplay.SetActive (false);
-//			gameEnding = true;
-//		} else if (!gameEnding && !overtime) {
-//			GameTimerDisplay.SetActive (false);
-//			OvertimeDisplay.SetActive (true);
-//			overtime = true;
-//		}
-
-
+		//if the player makes all things happy, end the game.
 		if (happyObjectCount >= happyObjectMax && !gameEnding) {
 			gameEnding = true;
 		}
-		//need to add if(all objects are happy) start end game
 
 	}
-
+		
+	//deals with colliding with candies, other unicorns, and the top and bottom edge of the screen
 	void OnTriggerEnter2D (Collider2D other){
 
+		//if the player hits a candy, make sounds, make paricles, tell the other object what to do in its script, and calculate score
 		if (other.gameObject.tag == "Lollipop" && !stopInteraction) {
 			other.gameObject.GetComponent<LolliPopScript> ().UnicornHit ();
 			GetComponent<AudioSource> ().PlayOneShot (Poof);
@@ -141,18 +161,19 @@ public class UnicornMove : MonoBehaviour {
 			CalculateScore (other.gameObject.GetComponent<LolliPopScript> ().identity);
 		}
 
+		//if you hit the top of the screen, flip velocity direction down, also make the camera adjust its trailing
 		if (other.gameObject.tag == "TopEdge") {
 			travelingUp = false;
-			//speed = speed * -1f;
 			Camera.GetComponent<CameraFollow> ().TopCamera ();
 		}
 
+		//if you hit the bottom of the screen, flip velocity direction up, also make the camera adjust its trailing
 		if (other.gameObject.tag == "BottomEdge") {
 			travelingUp = true;
-			//speed = speed * -1f;
 			Camera.GetComponent<CameraFollow> ().BottomCamera ();
 		}
 
+		//if you hit a unicorn, give score, tell the unicorn what to do in its script, and add love to the love meter.
 		if (other.gameObject.tag == "Unicorn") {
 			CurrencyManager.unicornSmiles += 500;
 			other.gameObject.GetComponent<SittingUnicornScript> ().UnicornChange ();
@@ -161,6 +182,7 @@ public class UnicornMove : MonoBehaviour {
 
 	}
 
+	//flips the unicorn sprite based on phone tilt direction
 	void Flip(){
 		facingLeft = !facingLeft;
 		Vector2 theScale = transform.localScale;
@@ -168,6 +190,7 @@ public class UnicornMove : MonoBehaviour {
 		transform.localScale = theScale;
 	}
 
+	//when the love meter is full and player touches the screeen.  starts super mode, creates particles, sounds, turns on the big and small colliders to make things happy
 	public void LoveMeterFull(){
 		Instantiate (HappySplode, new Vector2(gameObject.transform.position.x,gameObject.transform.position.y), Quaternion.identity, gameObject.transform);
 		HappySplode.SetActive (true);
@@ -180,29 +203,33 @@ public class UnicornMove : MonoBehaviour {
 		}
 	}
 
-
+	//turns on the small collider for crashing into things
 	public void StartSuperMode(){
 		HappyZoneUnicorn.SetActive (true);
 	}
 
+	//turns off the small collider for crashing into thigns, and turns off supermode
 	public void EndSuperMode(){
 		HappyZoneUnicorn.SetActive (false);
 		superMode = false;
 	}
 
+	//turns off the big collider that hits everything on the screen
 	IEnumerator HappyZoneReset(){
 		yield return new WaitForSeconds (0.2f);
 		HappyZone.SetActive (false);
 	}
 
+	//calculate multiplier and score
 	public void CalculateScore(int collectableIdentity){
+		//if the player is no in sper mode, check to see if the player collected the right candy.
+		//if player collects the right candy, add mulitplier, add lovemeter, and change target image
+		//if player is in super mode they can grab anything
 		if (!superMode) {
-			//Debug.Log ("collected something");
 			if (collectableIdentity == currentIdentity) {
 				multiplier += 1;
 				LoveMeter.GetComponent<LoveMeterFill> ().AddLove ();
 				currentIdentity = Random.Range (0, 3);
-				//Debug.Log (currentIdentity);
 				UpdateMultiplierImage ();
 			} else {
 				if (multiplier < 3) {
@@ -214,11 +241,13 @@ public class UnicornMove : MonoBehaviour {
 		} else {
 			multiplier += 1;
 		}
+		//update score, create mulitplier popup, display score
 		score = score + (10 * multiplier);
 		Instantiate (MultiplierPopUpDisplay, transform.position, Quaternion.identity);
 		ScoreDisplay.GetComponent<Text> ().text = "" + score;
 	}
 
+	//switch the target candy image
 	public void UpdateMultiplierImage(){
 		switch (currentIdentity) {
 		case 0:
@@ -235,36 +264,16 @@ public class UnicornMove : MonoBehaviour {
 		}
 	}
 
-//	IEnumerator FadeBackgroundIn(){
-//		time = 0f;
-//		yield return null;
-//		while (time <= 1f) {
-//			TimeOfDay.GetComponent<Image> ().color = new Color (TimeOfDay.GetComponent<Image> ().color.r, TimeOfDay.GetComponent<Image> ().color.g, TimeOfDay.GetComponent<Image> ().color.b, time);
-//			time += Time.deltaTime * (1.0f / transitionTime);
-//			yield return null;
-//		}
-//
-//	}
-
+	//fade in the light background as the player makes objects happy
 	public void FadeInDayTime(){
 		happyObjectCount++;
 		float Count = happyObjectCount;
 		float Max = happyObjectMax;
 		float happyObjectDifference = Count/Max;
-		//Debug.Log (happyObjectCount / happyObjectMax);
 		TimeOfDay.GetComponent<Image> ().color = new Color (TimeOfDay.GetComponent<Image> ().color.r, TimeOfDay.GetComponent<Image> ().color.g, TimeOfDay.GetComponent<Image> ().color.b, happyObjectDifference);
 	}
 
-	IEnumerator EndGameSlowdown(){
-		yield return null;
-//		while (speed > 0) {
-//			speed -= Time.deltaTime;
-//			turnSpeed -= Time.deltaTime;
-//			yield return null;
-//		}
-		EndGame ();
-	}
-
+	//end the game, stop interaction, stop movement, save the game, turn on end screen
 	public void EndGame(){
 		speed = 0f;
 		turnSpeed = 0f;
@@ -272,24 +281,38 @@ public class UnicornMove : MonoBehaviour {
 		EndScoreDisplay.GetComponent<Text> ().text = "Score: " + score;
 		CurrencyManager.unicornSmiles += score;
 		GameObject.FindGameObjectWithTag ("SaveSettings").GetComponent<SaveSettingsScript> ().SaveSettings ();
-		Debug.Log (CurrencyManager.unicornSmiles);
 		EndScreen.SetActive (true);
 	}
 
+	//reset the game
 	public void RestartGame(){
 		EndSuperMode ();
 		SceneManager.LoadScene ("prototype5");
 	}
 
+	//go to menu
 	public void GameToMenu(){
 		EndSuperMode ();
 		GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager> ().StartIntroMusic ();
 		SceneManager.LoadScene ("Menu");
 	}
 
+	//go to Spread the Love menu
 	public void GameToSpreadLove(){
 		EndSuperMode ();
 		GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager> ().StartIntroMusic ();
 		SceneManager.LoadScene ("SpreadTheLove");
 	}
+
+	//	IEnumerator FadeBackgroundIn(){
+	//		time = 0f;
+	//		yield return null;
+	//		while (time <= 1f) {
+	//			TimeOfDay.GetComponent<Image> ().color = new Color (TimeOfDay.GetComponent<Image> ().color.r, TimeOfDay.GetComponent<Image> ().color.g, TimeOfDay.GetComponent<Image> ().color.b, time);
+	//			time += Time.deltaTime * (1.0f / transitionTime);
+	//			yield return null;
+	//		}
+	//
+	//	}
+
 }
