@@ -19,6 +19,8 @@ AudioMixerController:
     name: MusicHigh
   - guid: d40953771cc90c44898e8c3eea882e3c
     name: MusicIntro
+  - guid: dfa1b351d4e287341b23282fffba15a9
+    name: MusicLollipop
   - guid: 67990e14dddd20d42bf342370270507a
     name: MusicLow
   - guid: f08e55da1ee448b4e91b1575a5ed9a2c
@@ -34,6 +36,7 @@ AudioMixerController:
     - 96bef2e6e3931b845adecb6155292aee
     - 4af721448c28bc54d9d7963395b80856
     - 5f2bc3f00557c3e408ee9ef64e6535eb
+    - 9fd18e26a7ad70b479a013679c3fefef
     name: View
   m_CurrentViewIndex: 0
   m_TargetSnapshot: {fileID: 24500003}
@@ -111,6 +114,7 @@ AudioMixerGroupController:
   - {fileID: 243476802652746168}
   - {fileID: 243419308008938106}
   - {fileID: 243033574760138988}
+  - {fileID: 243627347232778564}
   m_Volume: 800c13d08f7bd144d8a682723e884cb3
   m_Pitch: bb90934c1a3ec4649ba7d270832035ea
   m_Effects:
@@ -187,6 +191,23 @@ AudioMixerGroupController:
   m_Mute: 0
   m_Solo: 0
   m_BypassEffects: 0
+--- !u!243 &243627347232778564
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Lollipop
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: 9fd18e26a7ad70b479a013679c3fefef
+  m_Children: []
+  m_Volume: dfa1b351d4e287341b23282fffba15a9
+  m_Pitch: 4821ea4230943ac40beda0096015d16f
+  m_Effects:
+  - {fileID: 244638712787693530}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
 --- !u!244 &244060966449946806
 AudioMixerEffectController:
   m_ObjectHideFlags: 3
@@ -248,6 +269,19 @@ AudioMixerEffectController:
   m_EffectID: a4b301e56201c3c42b3edc03133a04ab
   m_EffectName: Attenuation
   m_MixLevel: 760a74183d8272b4ca5255fd6dee07c3
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
+--- !u!244 &244638712787693530
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_EffectID: 9c85b1071e56fda42bbb39fc09e2be06
+  m_EffectName: Attenuation
+  m_MixLevel: f057f8ba8bd9c84439400ded27788892
   m_Parameters: []
   m_SendTarget: {fileID: 0}
   m_EnableWetMix: 0

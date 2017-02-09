@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class SaveSettingsScript : MonoBehaviour {
 
+	public GameObject SoundManagerHolder;
+
 	private static SaveSettingsScript instance = null;
 	public static SaveSettingsScript Instance {
 		get{ return Instance; }
@@ -43,6 +45,7 @@ public class SaveSettingsScript : MonoBehaviour {
 		SoundManager.AudioOff = (PlayerPrefs.GetInt ("MusicOff") != 0);
 		NetworkScript.activeCompliment = PlayerPrefs.GetInt ("ActiveCompliments");
 		CurrencyManager.unicornSmiles = PlayerPrefs.GetInt ("UnicornSmiles");
+		SoundManagerHolder.GetComponent<SoundManager> ().StartLollipopMusic ();
 	//	Debug.Log (CurrencyManager.unicornSmiles);
 	}
 

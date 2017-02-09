@@ -9,6 +9,7 @@ public class SoundManager : MonoBehaviour {
 	public static bool SoundEffectsOff;
 	public AudioClip IntroMenuMusic;
 	public AudioClip IntroStart;
+	public AudioClip LollipopMusic;
 
 	public AudioMixer masterMixer;
 
@@ -33,12 +34,24 @@ public class SoundManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		
+	}
+
+	public void StartLollipopMusic(){
+		if (!AudioOff) {
+			masterMixer.SetFloat ("MusicVolume", 0f);
+			masterMixer.SetFloat ("MusicLollipop", 0f);
+		} else {
+			masterMixer.SetFloat ("MusicVolume", -80f);
+		}
+
+		GetComponent<AudioSource> ().clip = LollipopMusic;
+		GetComponent<AudioSource> ().Play ();
 	}
 
 	public void StartIntroMusic(){
@@ -55,6 +68,7 @@ public class SoundManager : MonoBehaviour {
 
 	public void StartIntroStarting(){
 		if (!AudioOff) {
+			masterMixer.SetFloat ("MusicLollipop", -80f);
 			masterMixer.SetFloat ("MusicVolume", 0f);
 			masterMixer.SetFloat ("MusicIntro", 0f);
 		} else {
@@ -71,6 +85,9 @@ public class SoundManager : MonoBehaviour {
 			masterMixer.SetFloat ("MusicIntro", -80f);
 			masterMixer.SetFloat ("MusicLow", 0f);
 			masterMixer.SetFloat ("MusicMedium", -80f);
+			//delete line below when you get low music
+			masterMixer.SetFloat ("MusicMedium", 0f);
+			//end delete
 			masterMixer.SetFloat ("MusicHigh", -80f);
 		} else {
 			masterMixer.SetFloat ("MusicVolume", -80f);

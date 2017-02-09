@@ -5593,6 +5593,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IntroMenuMusic: {fileID: 8300000, guid: b88a16c7a1bb3c742b5906cd6d106f4b, type: 3}
   IntroStart: {fileID: 8300000, guid: 23b2722bd2256e646a6ab45cdc9b466d, type: 3}
+  LollipopMusic: {fileID: 8300000, guid: 27414c53f1783e94c971b07dc3b416f5, type: 3}
   masterMixer: {fileID: 24100000, guid: 9e8985077d54dd14bb36494a8fcacd1c, type: 2}
 --- !u!4 &484609969
 Transform:
@@ -9822,6 +9823,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fe7a98b909171c449bc452a7148fe98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SoundManagerHolder: {fileID: 484609967}
 --- !u!4 &1456629659
 Transform:
   m_ObjectHideFlags: 0
