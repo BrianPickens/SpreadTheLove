@@ -5591,8 +5591,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40fcc2c0e9a5c774f84ebd3c317c7429, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IntroMenuMusic: {fileID: 8300000, guid: 26e6da657b3f6b5419e67f1591eed123, type: 3}
-  GameMusic: {fileID: 8300000, guid: e6fc7964297d50947a4b86e75f764e02, type: 3}
+  IntroMenuMusic: {fileID: 8300000, guid: b88a16c7a1bb3c742b5906cd6d106f4b, type: 3}
+  IntroStart: {fileID: 8300000, guid: 23b2722bd2256e646a6ab45cdc9b466d, type: 3}
+  masterMixer: {fileID: 24100000, guid: 9e8985077d54dd14bb36494a8fcacd1c, type: 2}
 --- !u!4 &484609969
 Transform:
   m_ObjectHideFlags: 0
@@ -5614,7 +5615,8 @@ AudioSource:
   m_GameObject: {fileID: 484609967}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 243033574760138988, guid: 9e8985077d54dd14bb36494a8fcacd1c,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -5770,6 +5772,7 @@ MonoBehaviour:
   HappyParticles: {fileID: 1745248520}
   LoveParticles: {fileID: 296267509}
   CanvasTitle: {fileID: 1177920854}
+  SoundHolder: {fileID: 484609967}
   HappyUnicorn: {fileID: 21300000, guid: fe23abdcf206dbf42b07032e7f43a426, type: 3}
   SadUnicorn: {fileID: 21300000, guid: e94677c701629f9479aa45c54122fd2b, type: 3}
   LollipopUnicorn: {fileID: 21300000, guid: f36ef14de6bab7e4abd27aa666d9baf2, type: 3}
