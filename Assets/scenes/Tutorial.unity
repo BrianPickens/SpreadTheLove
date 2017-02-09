@@ -290,24 +290,28 @@ MonoBehaviour:
   tutImages:
   - {fileID: 520703910}
   - {fileID: 1773463602}
-  turnOffTutScreenAtOne: 2
-  turnOffTutScreenAtTwo: 4
+  turnOffTutCanvasAtScreen: 0300000005000000
   fillMeter: {fileID: 1932827539}
   tutScreenArray:
-  - instructions: Screen 1
+  - screenName: Screen 0
+    instructions: Welcome!
     icons:
     - {fileID: 21300000, guid: 10316c165a6c44840a3aaba497ce2f25, type: 3}
-  - instructions: screen 2
+  - screenName: Screen 1
+    instructions: Lalala
     icons: []
-  - instructions: screen 3
+  - screenName: Screen 2
+    instructions: Wee
     icons:
     - {fileID: 21300000, guid: 10316c165a6c44840a3aaba497ce2f25, type: 3}
     - {fileID: 21300000, guid: 10316c165a6c44840a3aaba497ce2f25, type: 3}
-  - instructions: screen 4
+  - screenName: Screen 3
+    instructions: Books!
     icons:
     - {fileID: 21300000, guid: 10316c165a6c44840a3aaba497ce2f25, type: 3}
     - {fileID: 21300000, guid: 10316c165a6c44840a3aaba497ce2f25, type: 3}
-  - instructions: screen 5
+  - screenName: Screen 4
+    instructions: Nice beard
     icons:
     - {fileID: 21300000, guid: 10316c165a6c44840a3aaba497ce2f25, type: 3}
 --- !u!4 &31642343
