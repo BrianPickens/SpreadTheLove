@@ -5751,8 +5751,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 543599355}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.31, y: -2.55, z: 0}
-  m_LocalScale: {x: -1.600097, y: 1.600097, z: 1.600097}
+  m_LocalPosition: {x: 4.97, y: -2.55, z: 0}
+  m_LocalScale: {x: 1.600097, y: 1.600097, z: 1.600097}
   m_Children:
   - {fileID: 296267512}
   m_Father: {fileID: 0}
@@ -5926,8 +5926,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 17.1, y: 9.7}
+  m_AnchoredPosition: {x: 0, y: 2.1514}
+  m_SizeDelta: {x: 9.51, y: 5.3972}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &663880336
 MonoBehaviour:
@@ -5948,7 +5948,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: d79e5b16db4354544a4da43fd7c53e6f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0df964f5849fd5242a717dcc7fada6da, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6267,7 +6267,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 932423770}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.2, y: 0.59, z: 0}
+  m_LocalPosition: {x: 5.08, y: 0.59, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 237527412}
@@ -6455,7 +6455,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1086684240}
   m_LocalRotation: {x: -0, y: -0, z: 0.2602624, w: 0.96553797}
-  m_LocalPosition: {x: 3.78, y: 1.8, z: 0}
+  m_LocalPosition: {x: -5.03, y: 1.8, z: 0}
   m_LocalScale: {x: 0.39633834, y: 0.39633828, z: 0.34877768}
   m_Children:
   - {fileID: 1435508419}
@@ -6509,7 +6509,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fingerVerticalOffset: 1
   fingerHorizontalOffset: -0.5
-  BackgroundGood: {fileID: 21300000, guid: 7da0aef323fe96f4a982ff8934c54d41, type: 3}
+  BackgroundGood: {fileID: 21300000, guid: 71a2d57d60f27334dafa65479a1489b3, type: 3}
   StarParticles: {fileID: 1435508416}
   Unicorn: {fileID: 543599355}
   Background: {fileID: 817295494}
@@ -12693,7 +12693,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 7da0aef323fe96f4a982ff8934c54d41, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 71a2d57d60f27334dafa65479a1489b3, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
