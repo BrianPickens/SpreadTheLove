@@ -5591,8 +5591,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40fcc2c0e9a5c774f84ebd3c317c7429, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IntroMenuMusic: {fileID: 8300000, guid: 26e6da657b3f6b5419e67f1591eed123, type: 3}
-  GameMusic: {fileID: 8300000, guid: e6fc7964297d50947a4b86e75f764e02, type: 3}
+  IntroMenuMusic: {fileID: 8300000, guid: b88a16c7a1bb3c742b5906cd6d106f4b, type: 3}
+  IntroStart: {fileID: 8300000, guid: 23b2722bd2256e646a6ab45cdc9b466d, type: 3}
+  LollipopMusic: {fileID: 8300000, guid: 27414c53f1783e94c971b07dc3b416f5, type: 3}
+  masterMixer: {fileID: 24100000, guid: 9e8985077d54dd14bb36494a8fcacd1c, type: 2}
 --- !u!4 &484609969
 Transform:
   m_ObjectHideFlags: 0
@@ -5614,7 +5616,8 @@ AudioSource:
   m_GameObject: {fileID: 484609967}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 243033574760138988, guid: 9e8985077d54dd14bb36494a8fcacd1c,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -5748,8 +5751,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 543599355}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.31, y: -2.55, z: 0}
-  m_LocalScale: {x: -1.600097, y: 1.600097, z: 1.600097}
+  m_LocalPosition: {x: 4.97, y: -2.55, z: 0}
+  m_LocalScale: {x: 1.600097, y: 1.600097, z: 1.600097}
   m_Children:
   - {fileID: 296267512}
   m_Father: {fileID: 0}
@@ -5770,6 +5773,7 @@ MonoBehaviour:
   HappyParticles: {fileID: 1745248520}
   LoveParticles: {fileID: 296267509}
   CanvasTitle: {fileID: 1177920854}
+  SoundHolder: {fileID: 484609967}
   HappyUnicorn: {fileID: 21300000, guid: fe23abdcf206dbf42b07032e7f43a426, type: 3}
   SadUnicorn: {fileID: 21300000, guid: e94677c701629f9479aa45c54122fd2b, type: 3}
   LollipopUnicorn: {fileID: 21300000, guid: f36ef14de6bab7e4abd27aa666d9baf2, type: 3}
@@ -5922,8 +5926,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 17.1, y: 9.7}
+  m_AnchoredPosition: {x: 0, y: 2.1514}
+  m_SizeDelta: {x: 9.51, y: 5.3972}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &663880336
 MonoBehaviour:
@@ -5944,7 +5948,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: d79e5b16db4354544a4da43fd7c53e6f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0df964f5849fd5242a717dcc7fada6da, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6263,7 +6267,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 932423770}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.2, y: 0.59, z: 0}
+  m_LocalPosition: {x: 5.08, y: 0.59, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 237527412}
@@ -6451,7 +6455,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1086684240}
   m_LocalRotation: {x: -0, y: -0, z: 0.2602624, w: 0.96553797}
-  m_LocalPosition: {x: 3.78, y: 1.8, z: 0}
+  m_LocalPosition: {x: -5.03, y: 1.8, z: 0}
   m_LocalScale: {x: 0.39633834, y: 0.39633828, z: 0.34877768}
   m_Children:
   - {fileID: 1435508419}
@@ -6505,7 +6509,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fingerVerticalOffset: 1
   fingerHorizontalOffset: -0.5
-  BackgroundGood: {fileID: 21300000, guid: 7da0aef323fe96f4a982ff8934c54d41, type: 3}
+  BackgroundGood: {fileID: 21300000, guid: 71a2d57d60f27334dafa65479a1489b3, type: 3}
   StarParticles: {fileID: 1435508416}
   Unicorn: {fileID: 543599355}
   Background: {fileID: 817295494}
@@ -9819,6 +9823,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fe7a98b909171c449bc452a7148fe98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SoundManagerHolder: {fileID: 484609967}
 --- !u!4 &1456629659
 Transform:
   m_ObjectHideFlags: 0
@@ -12688,7 +12693,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 7da0aef323fe96f4a982ff8934c54d41, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 71a2d57d60f27334dafa65479a1489b3, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

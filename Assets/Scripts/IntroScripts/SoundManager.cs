@@ -1,13 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class SoundManager : MonoBehaviour {
 
 	public static bool AudioOff;
 	public static bool SoundEffectsOff;
 	public AudioClip IntroMenuMusic;
-	public AudioClip GameMusic;
+	public AudioClip IntroStart;
+	public AudioClip LollipopMusic;
+
+	public AudioMixer masterMixer;
 
 	private static SoundManager instance = null;
 	public static SoundManager Instance {
@@ -30,7 +34,7 @@ public class SoundManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+
 	}
 	
 	// Update is called once per frame
@@ -38,21 +42,72 @@ public class SoundManager : MonoBehaviour {
 		
 	}
 
+	public void StartLollipopMusic(){
+		if (!AudioOff) {
+			masterMixer.SetFloat ("MusicVolume", 0f);
+			masterMixer.SetFloat ("MusicLollipop", 0f);
+		} else {
+			masterMixer.SetFloat ("MusicVolume", -80f);
+		}
+
+		GetComponent<AudioSource> ().clip = LollipopMusic;
+		GetComponent<AudioSource> ().Play ();
+	}
+
 	public void StartIntroMusic(){
 		if (!AudioOff) {
-			GetComponent<AudioSource> ().clip = IntroMenuMusic;
-			GetComponent<AudioSource> ().Play ();
+			masterMixer.SetFloat ("MusicVolume", 0f);
+			masterMixer.SetFloat ("MusicIntro", 0f);
+		} else {
+			masterMixer.SetFloat ("MusicVolume", -80f);
 		}
+
+		GetComponent<AudioSource> ().clip = IntroMenuMusic;
+		GetComponent<AudioSource> ().Play ();
+	}
+
+	public void StartIntroStarting(){
+		if (!AudioOff) {
+			masterMixer.SetFloat ("MusicLollipop", -80f);
+			masterMixer.SetFloat ("MusicVolume", 0f);
+			masterMixer.SetFloat ("MusicIntro", 0f);
+		} else {
+			masterMixer.SetFloat ("MusicVolume", -80f);
+		}
+
+		GetComponent<AudioSource> ().clip = IntroStart;
+		GetComponent<AudioSource> ().Play ();
 	}
 
 	public void StartGameMusic(){
 		if (!AudioOff) {
-			GetComponent<AudioSource> ().clip = GameMusic;
-			GetComponent<AudioSource> ().Play ();
+			masterMixer.SetFloat ("MusicVolume", 0f);
+			masterMixer.SetFloat ("MusicIntro", -80f);
+			masterMixer.SetFloat ("MusicLow", 0f);
+			masterMixer.SetFloat ("MusicMedium", -80f);
+			//delete line below when you get low music
+			masterMixer.SetFloat ("MusicMedium", 0f);
+			//end delete
+			masterMixer.SetFloat ("MusicHigh", -80f);
+		} else {
+			masterMixer.SetFloat ("MusicVolume", -80f);
 		}
 	}
 
+	public void StartMediumMusic(){
+		masterMixer.SetFloat ("MusicMedium", 0f);
+	}
+
+	public void StartSuperModeMusic(){
+		masterMixer.SetFloat ("MusicHigh", 0f);
+	}
+
+	public void EndSuperModeMusic(){
+		masterMixer.SetFloat ("MusicHigh", -80f);
+	}
+
 	public void TurnOffMusic(){
-		GetComponent<AudioSource> ().Stop ();
+		masterMixer.SetFloat ("MusicVolume", -80f);
+		//GetComponent<AudioSource> ().Stop ();
 	}
 }

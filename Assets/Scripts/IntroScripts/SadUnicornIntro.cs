@@ -9,6 +9,7 @@ public class SadUnicornIntro : MonoBehaviour {
 	public GameObject HappyParticles;
 	public GameObject LoveParticles;
 	public GameObject CanvasTitle;
+	public GameObject SoundHolder;
 
 	public Sprite HappyUnicorn;
 	public Sprite SadUnicorn;
@@ -27,6 +28,11 @@ public class SadUnicornIntro : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+
+		if (Input.GetKeyDown (KeyCode.Return)) {
+			hasLollipop = true;
+			LollipopAcquired ();
+		}
 
 	}
 
@@ -63,7 +69,8 @@ public class SadUnicornIntro : MonoBehaviour {
 	}
 
 	IEnumerator WaitOnCamera(){
-		yield return new WaitForSeconds (25.45f);
+		yield return new WaitForSeconds (3.4f);
+		SoundHolder.GetComponent<SoundManager> ().StartIntroMusic ();
 		CanvasTitle.GetComponent<DropIntroCanvasScript> ().DropCanvas ();
 		yield return new WaitForSeconds (1f);
 		SceneManager.LoadScene ("Menu");

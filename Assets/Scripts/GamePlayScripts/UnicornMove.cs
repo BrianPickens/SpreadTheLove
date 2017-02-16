@@ -37,6 +37,7 @@ public class UnicornMove : MonoBehaviour {
 	private bool stopInteraction;
 	private bool overtime;
 	private bool facingLeft;
+	private bool mediumMusicOn;
 
 	public float speed;
 	public float baseSpeed;
@@ -142,6 +143,14 @@ public class UnicornMove : MonoBehaviour {
 				Mathf.Clamp (_myTransform.position.y, minUnicornPos.y, maxUnicornPos.y));
 		}
 
+		//if the player makes half of the objects happy, move the music to medium
+		if (happyObjectCount > happyObjectMax / 2 && !mediumMusicOn) {
+			if (GameObject.FindGameObjectWithTag ("SoundManager") != null) {
+				GameObject.FindGameObjectWithTag ("SoundManager").GetComponent<SoundManager> ().StartMediumMusic ();
+			}
+			mediumMusicOn = true;
+		}
+
 		//if the player makes all things happy, end the game.
 		if (happyObjectCount >= happyObjectMax && !gameEnding) {
 			gameEnding = true;
@@ -206,10 +215,16 @@ public class UnicornMove : MonoBehaviour {
 	//turns on the small collider for crashing into things
 	public void StartSuperMode(){
 		HappyZoneUnicorn.SetActive (true);
+		if (GameObject.FindGameObjectWithTag ("SoundManager") != null) {
+			GameObject.FindGameObjectWithTag ("SoundManager").GetComponent<SoundManager> ().StartSuperModeMusic ();
+		}
 	}
 
 	//turns off the small collider for crashing into thigns, and turns off supermode
 	public void EndSuperMode(){
+		if (GameObject.FindGameObjectWithTag ("SoundManager") != null) {
+			GameObject.FindGameObjectWithTag ("SoundManager").GetComponent<SoundManager> ().EndSuperModeMusic ();
+		}
 		HappyZoneUnicorn.SetActive (false);
 		superMode = false;
 	}
