@@ -296,14 +296,12 @@ MonoBehaviour:
   tutScreenArray:
   - screenName: Screen 0
     instructions: Welcome to the tutorial! Let's get started shall we?
-    animation: {fileID: 0}
     sprite: {fileID: 21300000, guid: 16125a454c89144c78cc13e646684a2f, type: 3}
     isLeftArrowOn: 0
     isRightArrowOn: 0
     isTutorialDone: 0
   - screenName: Screen 1
     instructions: 'Tilt your phone in order to move the unicorn around the screen. '
-    animation: {fileID: 7400000, guid: 419a2b07a89de426790f83bc16299b4b, type: 2}
     sprite: {fileID: 21300000, guid: 66d89f3006edc41bba67d4a6f4480bba, type: 3}
     isLeftArrowOn: 0
     isRightArrowOn: 0
@@ -311,7 +309,6 @@ MonoBehaviour:
   - screenName: Screen 2
     instructions: Collect the lollipops, pudding, and waffles to increase your lollipop
       counter and fill the happiness gauge.
-    animation: {fileID: 0}
     sprite: {fileID: 21300000, guid: f1bf16341522546c4b362723adb0ffba, type: 3}
     isLeftArrowOn: 1
     isRightArrowOn: 1
@@ -319,7 +316,6 @@ MonoBehaviour:
   - screenName: Screen 3
     instructions: The more things you collect, the more compliments you can give out
       via the main menu!
-    animation: {fileID: 0}
     sprite: {fileID: 21300000, guid: 4a09b4e94b2f4824b80e0ebd687f29a3, type: 3}
     isLeftArrowOn: 0
     isRightArrowOn: 1
@@ -327,7 +323,6 @@ MonoBehaviour:
   - screenName: Screen 4
     instructions: Sometimes the screen will prompt you to collect a certain food.
       This will give you bonus points!
-    animation: {fileID: 0}
     sprite: {fileID: 21300000, guid: cb8fda089105c4e30a0ae195b5380cca, type: 3}
     isLeftArrowOn: 0
     isRightArrowOn: 0
@@ -335,7 +330,6 @@ MonoBehaviour:
   - screenName: Screen 5
     instructions: Make sure to also cheer up your friends! This will also increase
       you happiness gauge.
-    animation: {fileID: 0}
     sprite: {fileID: 21300000, guid: f36ef14de6bab7e4abd27aa666d9baf2, type: 3}
     isLeftArrowOn: 1
     isRightArrowOn: 0
@@ -343,21 +337,18 @@ MonoBehaviour:
   - screenName: Screen 6
     instructions: When your gauge is filled, tap your screen to make the world brighter
       and less glum!
-    animation: {fileID: 0}
     sprite: {fileID: 21300000, guid: 253a9f2d722984ff4ab0425094c7d36c, type: 3}
     isLeftArrowOn: 1
     isRightArrowOn: 0
     isTutorialDone: 0
   - screenName: Screen 7
     instructions: And that's the tutorial! Go out and Spread the Love!
-    animation: {fileID: 0}
     sprite: {fileID: 21300000, guid: 253a9f2d722984ff4ab0425094c7d36c, type: 3}
     isLeftArrowOn: 0
     isRightArrowOn: 0
     isTutorialDone: 0
   - screenName: Screen 8
     instructions: And that's the tutorial! Go out and Spread the Love!
-    animation: {fileID: 0}
     sprite: {fileID: 21300000, guid: 253a9f2d722984ff4ab0425094c7d36c, type: 3}
     isLeftArrowOn: 0
     isRightArrowOn: 0
@@ -442,8 +433,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -10}
-  m_SizeDelta: {x: 220, y: 126}
+  m_AnchoredPosition: {x: 3, y: -29}
+  m_SizeDelta: {x: 562, y: 322.93}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &52705457
 MonoBehaviour:
@@ -2982,8 +2973,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -157.6}
-  m_SizeDelta: {x: 300.9, y: 98.8}
+  m_AnchoredPosition: {x: 3, y: -352}
+  m_SizeDelta: {x: 701, y: 99}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &475172150
 MonoBehaviour:
@@ -3006,7 +2997,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 18
+    m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -4267,12 +4258,12 @@ MonoBehaviour:
   m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
-  m_ReferencePixelsPerUnit: 100
+  m_UiScaleMode: 1
+  m_ReferencePixelsPerUnit: 32
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1600, y: 1200}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 1
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -5732,8 +5723,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 303, y: 50.5}
-  m_SizeDelta: {x: 39, y: 101}
+  m_AnchoredPosition: {x: 977, y: 383}
+  m_SizeDelta: {x: 81, y: 194}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &941686693
 MonoBehaviour:
@@ -6960,12 +6951,12 @@ MonoBehaviour:
   m_Script: {fileID: 1980459831, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
-  m_ReferencePixelsPerUnit: 100
+  m_UiScaleMode: 1
+  m_ReferencePixelsPerUnit: 32
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1600, y: 1200}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 1
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -7981,8 +7972,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 95}
-  m_SizeDelta: {x: 300.9, y: 98.8}
+  m_AnchoredPosition: {x: -8, y: 326}
+  m_SizeDelta: {x: 917, y: 307}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1369705291
 MonoBehaviour:
@@ -8005,7 +7996,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 18
+    m_FontSize: 60
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -9963,8 +9954,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -214, y: 128}
-  m_SizeDelta: {x: 39, y: 101}
+  m_AnchoredPosition: {x: -751, y: 460}
+  m_SizeDelta: {x: 118, y: 305}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1671018386
 MonoBehaviour:
@@ -11625,8 +11616,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 727, y: 414}
+  m_AnchoredPosition: {x: 0.0072326995, y: 0}
+  m_SizeDelta: {x: 2132, y: 1200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1965275834
 MonoBehaviour:

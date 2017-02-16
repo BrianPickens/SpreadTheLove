@@ -27,7 +27,7 @@ public class TutorialBase : MonoBehaviour {
 	public struct TutorialScreens{
 		public string screenName;
 		public string instructions;
-		public AnimationClip animation;
+//		public AnimationClip animation;
 		public Sprite sprite;
 		public bool isLeftArrowOn;
 		public bool isRightArrowOn;
