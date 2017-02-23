@@ -45,6 +45,7 @@ public class SaveSettingsScript : MonoBehaviour {
 		SoundManager.AudioOff = (PlayerPrefs.GetInt ("MusicOff") != 0);
 		NetworkScript.activeCompliment = PlayerPrefs.GetInt ("ActiveCompliments");
 		CurrencyManager.unicornSmiles = PlayerPrefs.GetInt ("UnicornSmiles");
+		TutorialModeScript.tutorialOff = (PlayerPrefs.GetInt ("TutorialOff") != 0);
 		SoundManagerHolder.GetComponent<SoundManager> ().StartLollipopMusic ();
 	//	Debug.Log (CurrencyManager.unicornSmiles);
 	}
@@ -53,6 +54,7 @@ public class SaveSettingsScript : MonoBehaviour {
 		PlayerPrefs.SetInt ("MusicOff", (SoundManager.AudioOff ? 1 : 0));
 		PlayerPrefs.SetInt ("ActiveCompliments", (NetworkScript.activeCompliment));
 		PlayerPrefs.SetInt ("UnicornSmiles", (CurrencyManager.unicornSmiles));
+		PlayerPrefs.SetInt ("TutorialOff", (TutorialModeScript.tutorialOff ? 1 : 0));
 	}
 		
 

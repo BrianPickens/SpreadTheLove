@@ -20,12 +20,10 @@ public class UnicornMove : MonoBehaviour {
 
 	public GameObject ScoreDisplay;
 	public GameObject MutiplierImageDisplay;
-	public GameObject GameTimerDisplay;
 	public GameObject TimeOfDay;
 	public GameObject EndScreen;
 	public GameObject EndScoreDisplay;
 	public GameObject MultiplierPopUpDisplay;
-	public GameObject OvertimeDisplay;
 
 	public Sprite LolliMultiplier;
 	public Sprite WaffleMultiplier;
@@ -35,7 +33,6 @@ public class UnicornMove : MonoBehaviour {
 	private bool gameEnding;
 	private bool slowingDown;
 	private bool stopInteraction;
-	private bool overtime;
 	private bool facingLeft;
 	private bool mediumMusicOn;
 

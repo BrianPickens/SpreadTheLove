@@ -4,56 +4,67 @@ using UnityEngine.UI;
 
 public class TutorialModeScript : MonoBehaviour {
 
-	public static bool tutorialMode;
-	public Toggle TutorialToggle;
+	public Sprite ToggleOn;
+	public Sprite ToggleOff;
 
-	public static bool musicMode;
-	public Toggle MusicToggle;
+	public static bool tutorialOff;
+	public GameObject TutorialSwitch;
 
-	// Use this for initialization
+	public bool musicOff;
+	public GameObject MusicSwitch;
+
 	void Start () {
 		CorrectToggle ();
 	}
 	
-	// Update is called once per frame
+
 	void Update () {
-	
+
 	}
 
 	public void ToggleTutorialMode(){
 
-		if (TutorialToggle.isOn) {
-			tutorialMode = true;
+		if (tutorialOff) {
+			tutorialOff = false;
+			TutorialSwitch.GetComponent<Image> ().sprite = ToggleOn;
+		} else {
+			tutorialOff = true;
+			TutorialSwitch.GetComponent<Image> ().sprite = ToggleOff;
 		}
 
-		if (!TutorialToggle.isOn) {
-			tutorialMode = false;
-		}
-		//Debug.Log (tutorialMode);
+		GameObject.FindGameObjectWithTag ("SaveSettings").GetComponent<SaveSettingsScript> ().SaveSettings ();
 	}
 
 	public void ToggleMusicMode(){
-		if (MusicToggle.isOn) {
-			//musicMode = true;
+
+		if (musicOff) {
+			musicOff = false;
 			SoundManager.AudioOff = false;
 			GameObject.FindGameObjectWithTag ("SoundManager").GetComponent<SoundManager> ().StartIntroMusic ();
-			GameObject.FindGameObjectWithTag ("SaveSettings").GetComponent<SaveSettingsScript> ().SaveSettings ();
-		}
-
-		if (!MusicToggle.isOn) {
-			//musicMode = false;
+			MusicSwitch.GetComponent<Image> ().sprite = ToggleOn;
+		} else {
+			musicOff = true;
 			SoundManager.AudioOff = true;
 			GameObject.FindGameObjectWithTag ("SoundManager").GetComponent<SoundManager> ().TurnOffMusic ();
-			GameObject.FindGameObjectWithTag ("SaveSettings").GetComponent<SaveSettingsScript> ().SaveSettings ();
+			MusicSwitch.GetComponent<Image> ().sprite = ToggleOff;
 		}
-		//Debug.Log (tutorialMode);
+
+		GameObject.FindGameObjectWithTag ("SaveSettings").GetComponent<SaveSettingsScript> ().SaveSettings ();
 	}
 
 	public void CorrectToggle(){
 		if (!SoundManager.AudioOff) {
-			MusicToggle.isOn = true;
+			MusicSwitch.GetComponent<Image> ().sprite = ToggleOn;
+			musicOff = false;
 		} else {
-			MusicToggle.isOn = false;
+			MusicSwitch.GetComponent<Image> ().sprite = ToggleOff;
+			musicOff = true;
+		}
+
+		if (!tutorialOff) {
+			TutorialSwitch.GetComponent<Image> ().sprite = ToggleOn;
+		} else {
+			TutorialSwitch.GetComponent<Image> ().sprite = ToggleOff;
 		}
 	}
 }

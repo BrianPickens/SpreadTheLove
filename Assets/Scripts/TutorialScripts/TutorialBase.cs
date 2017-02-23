@@ -6,6 +6,10 @@ using UnityEngine.SceneManagement;
 
 public class TutorialBase : MonoBehaviour {
 
+	public GameObject CandyHolder0;
+	public GameObject CandyHolder1;
+	public GameObject SpecialCollectables;
+
 	public Canvas tutorialCanvas;
 	public Text instructionsTxt;
 	public GameObject leftArrow;
@@ -18,6 +22,10 @@ public class TutorialBase : MonoBehaviour {
 	public int[] turnOffTutCanvasAtScreen;
 
 	public Image fillMeter;
+
+	private bool movementTimerComplete;
+	private bool candyOn;
+	private bool specialCollectablesOn;
 
 	// keeps track of screens
 	private int t;
@@ -48,18 +56,36 @@ public class TutorialBase : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		
 		// Automatically see tutorial canvas at the beginning
 		turnOnTutScreens (turnOffTutCanvasAtScreen[0]);
 
 		// Put conditions to when you want to start/ stop tutorial canvas here!
 
-		// Turn on the tutorial canvas when the fillmeter is between 60% and 90%. Turn it off at turnOffTutCanvasAtScreen index 1;
-		if (fillMeter.GetComponent<Image> ().fillAmount > .60f && fillMeter.GetComponent<Image> ().fillAmount < .90 && currentTutorialScreen < turnOffTutCanvasAtScreen[1]) {
+		if (movementTimerComplete) {
+			if (!candyOn) {
+				CandyHolder0.SetActive (true);
+				CandyHolder1.SetActive (true);
+				candyOn = true;
+			}
 			turnOnTutScreens (turnOffTutCanvasAtScreen [1]);
 		}
-			
-		if (fillMeter.GetComponent<Image> ().fillAmount <.50f && currentTutorialScreen >= turnOffTutCanvasAtScreen[1] && currentTutorialScreen < turnOffTutCanvasAtScreen[2]) {
+
+		// Turn on the tutorial canvas when the fillmeter is between 60% and 90%. Turn it off at turnOffTutCanvasAtScreen index 1;
+		if (fillMeter.GetComponent<Image> ().fillAmount > .60f && fillMeter.GetComponent<Image> ().fillAmount < .90 && currentTutorialScreen < turnOffTutCanvasAtScreen[2]) {
+			if (!specialCollectablesOn) {
+				SpecialCollectables.SetActive (true);
+				specialCollectablesOn = true;
+			}
 			turnOnTutScreens (turnOffTutCanvasAtScreen [2]);
+		}
+
+		if (fillMeter.GetComponent<Image> ().fillAmount > .99f && currentTutorialScreen >= turnOffTutCanvasAtScreen[1] && currentTutorialScreen < turnOffTutCanvasAtScreen[3]) {
+			turnOnTutScreens (turnOffTutCanvasAtScreen [3]);
+		}
+			
+		if (fillMeter.GetComponent<Image> ().fillAmount <.50f && currentTutorialScreen >= turnOffTutCanvasAtScreen[2] && currentTutorialScreen < turnOffTutCanvasAtScreen[4]) {
+			turnOnTutScreens (turnOffTutCanvasAtScreen [4]);
 		}
 			
 	}
@@ -146,6 +172,9 @@ public class TutorialBase : MonoBehaviour {
 	// turns on/off tutorial canvas
 	private void turnOnTutScreens(int turnOffTutScreenNum){
 		switchOnCanvas (true);
+
+
+
 		// if the current screen does not equal the screen you want to turn the tutorial canvas off at
 		// also if the canvas is already enabled
 		// switch the tutorial canvas off
@@ -155,9 +184,17 @@ public class TutorialBase : MonoBehaviour {
 		else {
 			if (DetectTouch ()) {
 				currentTutorialScreen++;
+				if (currentTutorialScreen == 2) {
+					StartCoroutine (StartMovementTimer ());
+				}
 				ChangeScreen ();
 			}
 		}
 	}
 		
+	IEnumerator StartMovementTimer(){
+		yield return new WaitForSeconds (10f);
+		movementTimerComplete = true;
+	}
+
 }

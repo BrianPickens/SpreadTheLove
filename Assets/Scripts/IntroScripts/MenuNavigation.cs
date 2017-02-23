@@ -16,7 +16,14 @@ public class MenuNavigation : MonoBehaviour {
 	}
 
 	public void MenuToGame(){
-		SceneManager.LoadScene ("prototype5");
+		if (TutorialModeScript.tutorialOff) {
+			SceneManager.LoadScene ("prototype5");
+		} else {
+			TutorialModeScript.tutorialOff = true;
+			GameObject.FindGameObjectWithTag ("SaveSettings").GetComponent<SaveSettingsScript> ().SaveSettings ();
+			SceneManager.LoadScene ("Tutorial");
+		}
+			
 	}
 
 	public void MenuToUSHOP(){
