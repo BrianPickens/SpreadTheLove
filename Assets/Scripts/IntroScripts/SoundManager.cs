@@ -85,9 +85,6 @@ public class SoundManager : MonoBehaviour {
 			masterMixer.SetFloat ("MusicIntro", -80f);
 			masterMixer.SetFloat ("MusicLow", 0f);
 			masterMixer.SetFloat ("MusicMedium", -80f);
-			//delete line below when you get low music
-			masterMixer.SetFloat ("MusicMedium", 0f);
-			//end delete
 			masterMixer.SetFloat ("MusicHigh", -80f);
 		} else {
 			masterMixer.SetFloat ("MusicVolume", -80f);

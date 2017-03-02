@@ -58,7 +58,9 @@ public class SadUnicornIntro : MonoBehaviour {
 
 	public void LollipopAcquired(){
 		if (hasLollipop) {
+			SadParticles.SetActive (false);
 			LoveParticles.SetActive (true);
+			HappyParticles.SetActive (true);
 			GetComponent<AudioSource> ().PlayOneShot (LovePoof);
 			GetComponent<SpriteRenderer> ().sprite = LollipopUnicorn;
 			Lollipop.GetComponent<LollipopControl> ().DestroyLollipop ();
