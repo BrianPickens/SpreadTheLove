@@ -83,7 +83,7 @@ public class LollipopControl : MonoBehaviour {
 
 	public void DestroyLollipop(){
 		Background.GetComponent<Image> ().sprite = BackgroundGood;
-		BackgroundMusic.GetComponent<SoundManager> ().StartIntroStarting ();
+		BackgroundMusic.GetComponent<SoundManager> ().IntroToRamp ();
 		Destroy (this.gameObject);
 	}
 }

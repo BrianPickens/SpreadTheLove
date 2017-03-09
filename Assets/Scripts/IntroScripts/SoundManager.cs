@@ -5,13 +5,29 @@ using UnityEngine.Audio;
 
 public class SoundManager : MonoBehaviour {
 
+
+	AudioSource TitleMusicSource;
+	AudioSource ShopMusicSource;
+	AudioSource RampMusicSource;
+	AudioSource LollipopLowSource;
+	AudioSource GameMusicLow;
+	AudioSource GameMusicMedium;
+	AudioSource GameMusicHigh;
+
 	public static bool AudioOff;
 	public static bool SoundEffectsOff;
 	public AudioClip IntroMenuMusic;
 	public AudioClip IntroStart;
 	public AudioClip LollipopMusic;
+	public AudioClip ShopMusic;
 
 	public AudioMixer masterMixer;
+
+	private bool volumeDown;
+	private float volume;
+	private float volume2;
+	private float volume3;
+	private bool mediumOn;
 
 	private static SoundManager instance = null;
 	public static SoundManager Instance {
@@ -34,6 +50,14 @@ public class SoundManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		AudioSource[] audios = GetComponents<AudioSource> ();
+		TitleMusicSource = audios [0];
+		RampMusicSource = audios [1];
+		LollipopLowSource = audios [2];
+		ShopMusicSource = audios [3];
+		GameMusicLow = audios [4];
+		GameMusicMedium = audios [5];
+		GameMusicHigh = audios [6];
 
 	}
 	
@@ -42,69 +66,383 @@ public class SoundManager : MonoBehaviour {
 		
 	}
 
-	public void StartLollipopMusic(){
+	public void IntroMusicPlay(){
 		if (!AudioOff) {
-			masterMixer.SetFloat ("MusicVolume", 0f);
-			masterMixer.SetFloat ("MusicLollipop", 0f);
+
 		} else {
 			masterMixer.SetFloat ("MusicVolume", -80f);
 		}
-
-		GetComponent<AudioSource> ().clip = LollipopMusic;
-		GetComponent<AudioSource> ().Play ();
+		LollipopLowSource.Play ();
 	}
 
-	public void StartIntroMusic(){
+	public void MenuMusicPlay(){
 		if (!AudioOff) {
-			masterMixer.SetFloat ("MusicVolume", 0f);
-			masterMixer.SetFloat ("MusicIntro", 0f);
+
 		} else {
 			masterMixer.SetFloat ("MusicVolume", -80f);
 		}
-
-		GetComponent<AudioSource> ().clip = IntroMenuMusic;
-		GetComponent<AudioSource> ().Play ();
+		TitleMusicSource.Play ();
 	}
 
-	public void StartIntroStarting(){
+	public void MenuToShop (){
 		if (!AudioOff) {
-			masterMixer.SetFloat ("MusicLollipop", -80f);
-			masterMixer.SetFloat ("MusicVolume", 0f);
-			masterMixer.SetFloat ("MusicIntro", 0f);
+			StartCoroutine (FadeMenuToShop ());
 		} else {
 			masterMixer.SetFloat ("MusicVolume", -80f);
 		}
-
-		GetComponent<AudioSource> ().clip = IntroStart;
-		GetComponent<AudioSource> ().Play ();
+		ShopMusicSource.Play ();
 	}
 
-	public void StartGameMusic(){
+	public void ShopToMenu(){
 		if (!AudioOff) {
-			masterMixer.SetFloat ("MusicVolume", 0f);
-			masterMixer.SetFloat ("MusicIntro", -80f);
-			masterMixer.SetFloat ("MusicLow", 0f);
+			StartCoroutine (FadeShopToMenu ());
+		} else {
+			masterMixer.SetFloat ("MusicVolume", -80f);
+		}
+		TitleMusicSource.Play ();
+	}
+
+	public void IntroToRamp(){
+		if (!AudioOff) {
+			StartCoroutine (FadeIntroToRamp());
+		} else {
+			masterMixer.SetFloat ("MusicVolume", -80f);
+		}
+		RampMusicSource.Play ();
+	}
+
+	public void RampToMenu(){
+		if (!AudioOff) {
+			
+		} else {
+			masterMixer.SetFloat ("MusicVolume", -80f);
+		}
+		TitleMusicSource.Play ();
+	}
+
+	public void MenuToGame(){
+		if (!AudioOff) {
 			masterMixer.SetFloat ("MusicMedium", -80f);
 			masterMixer.SetFloat ("MusicHigh", -80f);
+			StartCoroutine (FadeMenuToGame ());
 		} else {
 			masterMixer.SetFloat ("MusicVolume", -80f);
 		}
+
+		GameMusicLow.Play ();
+		GameMusicMedium.Play ();
+		GameMusicHigh.Play ();
+	}
+
+	public void GameToMenu(){
+		if (!AudioOff) {
+			StartCoroutine (FadeGameToMenu ());
+		} else {
+			masterMixer.SetFloat ("MusicVolume", -80f);
+		}
+		TitleMusicSource.Play ();
+	}
+
+	public void GameToShop(){
+		if (!AudioOff) {
+			StartCoroutine (FadeGameToShop ());
+		} else {
+			masterMixer.SetFloat ("MusicVolume", -80f);
+		}
+		ShopMusicSource.Play ();
+	}
+
+	public void RestartGameMusic(){
+		if (!AudioOff) {
+			StartCoroutine (FadeRestartGame ());
+		} else {
+			masterMixer.SetFloat ("MusicVolume", -80f);
+		}
+		GameMusicLow.Play ();
+		GameMusicMedium.Play ();
+		GameMusicHigh.Play ();
 	}
 
 	public void StartMediumMusic(){
-		masterMixer.SetFloat ("MusicMedium", 0f);
+		mediumOn = true;
+		StartCoroutine (FadeLowToMedium ());
 	}
 
 	public void StartSuperModeMusic(){
-		masterMixer.SetFloat ("MusicHigh", 0f);
+		if (!mediumOn) {
+			StartCoroutine (FadeToSuperModeFromLow ());
+		} else {
+			StartCoroutine (FadeToSuperModeFromMedium ());
+		}
 	}
 
 	public void EndSuperModeMusic(){
-		masterMixer.SetFloat ("MusicHigh", -80f);
+		if (!mediumOn) {
+			StartCoroutine (FadeOutSuperModeToLow ());
+		} else {
+			StartCoroutine (FadeOutSuperModeToMedium ());
+		}
 	}
 
 	public void TurnOffMusic(){
 		masterMixer.SetFloat ("MusicVolume", -80f);
 		//GetComponent<AudioSource> ().Stop ();
+	}
+		
+	IEnumerator FadeMenuToShop(){
+		volume = 0;
+		volume2 = -80f; 
+		while (volume > -78) {
+			volume -= 1;
+			if (volume2 < 0) {
+				volume2 += 10;
+			}
+
+			if (volume < -20) {
+				volume = -80f;
+			}
+			masterMixer.SetFloat ("MusicMenu", volume);
+			masterMixer.SetFloat ("MusicShop", volume2);
+			yield return new WaitForSeconds (0.05f);
+		}
+	}
+
+	IEnumerator FadeShopToMenu(){
+		volume = 0;
+		volume2 = -80f; 
+		while (volume > -78) {
+			volume -= 1;
+			if (volume2 < 0) {
+				volume2 += 10;
+			}
+
+			if (volume < -20) {
+				volume = -80f;
+			}
+			masterMixer.SetFloat ("MusicShop", volume);
+			masterMixer.SetFloat ("MusicMenu", volume2);
+			yield return new WaitForSeconds (0.05f);
+		}
+	}
+
+	IEnumerator FadeIntroToRamp(){
+		volume = 0;
+		volume2 = -80f; 
+		while (volume > -78) {
+			volume -= 1;
+			if (volume2 < 0) {
+				volume2 += 5;
+			}
+
+			if (volume < -20) {
+				volume = -80f;
+			}
+			masterMixer.SetFloat ("MusicLollipop", volume);
+			masterMixer.SetFloat ("MusicBuild", volume2);
+			yield return new WaitForSeconds (0.05f);
+		}
+	}
+
+	IEnumerator FadeMenuToGame(){
+		volume = 0;
+		volume2 = -80f; 
+		while (volume > -78) {
+			volume -= 1;
+			if (volume2 < 0) {
+				volume2 += 10;
+			}
+
+			if (volume < -20) {
+				volume = -80f;
+			}
+			masterMixer.SetFloat ("MusicMenu", volume);
+			masterMixer.SetFloat ("MusicLow", volume2);
+			yield return new WaitForSeconds (0.05f);
+		}
+	}
+
+	IEnumerator FadeToSuperModeFromLow(){
+		volume = 0;
+		volume2 = -80f; 
+		while (volume > -78) {
+			volume -= 1;
+			if (volume2 < 0) {
+				volume2 += 10;
+			}
+
+			if (volume < -20) {
+				volume = -80f;
+			}
+			masterMixer.SetFloat ("MusicLow", volume);
+			masterMixer.SetFloat ("MusicHigh", volume2);
+			yield return new WaitForSeconds (0.05f);
+		}
+	}
+
+	IEnumerator FadeToSuperModeFromMedium(){
+		volume = 0;
+		volume2 = -80f; 
+		while (volume > -78) {
+			volume -= 1;
+			if (volume2 < 0) {
+				volume2 += 10;
+			}
+
+			if (volume < -20) {
+				volume = -80f;
+			}
+			masterMixer.SetFloat ("MusicHigh", volume2);
+			yield return new WaitForSeconds (0.05f);
+		}
+	}
+
+	IEnumerator FadeOutSuperModeToLow(){
+		volume = 0;
+		volume2 = -80f; 
+		while (volume > -78) {
+			volume -= 1;
+			if (volume2 < 0) {
+				volume2 += 10;
+			}
+
+			if (volume < -20) {
+				volume = -80f;
+			}
+			masterMixer.SetFloat ("MusicHigh", volume);
+			masterMixer.SetFloat ("MusicLow", volume2);
+			yield return new WaitForSeconds (0.05f);
+		}
+	}
+
+	IEnumerator FadeOutSuperModeToMedium(){
+		volume = 0;
+		volume2 = -80f; 
+		while (volume > -78) {
+			volume -= 1;
+			if (volume2 < 0) {
+				volume2 += 10;
+			}
+
+			if (volume < -20) {
+				volume = -80f;
+			}
+			masterMixer.SetFloat ("MusicHigh", volume);
+			yield return new WaitForSeconds (0.05f);
+		}
+	}
+
+	IEnumerator FadeLowToMedium(){
+		volume = 0;
+		volume2 = -80f; 
+		while (volume > -78) {
+			volume -= 1;
+			if (volume2 < 0) {
+				volume2 += 5;
+			}
+
+			if (volume < -20) {
+				volume = -80f;
+			}
+			masterMixer.SetFloat ("MusicLow", volume);
+			masterMixer.SetFloat ("MusicMedium", volume2);
+			yield return new WaitForSeconds (0.05f);
+		}
+	}
+
+	IEnumerator FadeGameToMenu(){
+		volume = 0;
+		volume2 = -80f;
+		float tempFloat;
+		bool musicFloat = masterMixer.GetFloat ("MusicHigh", out tempFloat);
+		if (!musicFloat) {
+
+		} else {
+			volume3 = tempFloat;
+		}
+		//volume3 = masterMixer.GetFloat ("MusicHigh");
+		while (volume > -78) {
+			volume -= 1;
+			if (volume3 > -78) {
+				volume3 -= 1;
+			}
+
+			if (volume2 < 0) {
+				volume2 += 5;
+			}
+
+			if (volume < -20) {
+				volume = -80f;
+				volume3 = -80f;
+			}
+				
+			masterMixer.SetFloat ("MusicMedium", volume);
+			masterMixer.SetFloat ("MusicHigh", volume3);
+			masterMixer.SetFloat ("MusicMenu", volume2);
+			yield return new WaitForSeconds (0.05f);
+		}
+	}
+
+	IEnumerator FadeGameToShop(){
+		volume = 0;
+		volume2 = -80f; 
+		float tempFloat;
+		bool musicFloat = masterMixer.GetFloat ("MusicHigh", out tempFloat);
+		if (!musicFloat) {
+
+		} else {
+			volume3 = tempFloat;
+		}
+		//volume3 = masterMixer.GetFloat ("MusicHigh");
+		while (volume > -78) {
+			volume -= 1;
+			if (volume3 > -78) {
+				volume3 -= 1;
+			}
+
+			if (volume2 < 0) {
+				volume2 += 5;
+			}
+
+			if (volume < -20) {
+				volume = -80f;
+				volume3 = -80f;
+			}
+			masterMixer.SetFloat ("MusicMedium", volume);
+			masterMixer.SetFloat ("MusicHigh", volume3);
+			masterMixer.SetFloat ("MusicShop", volume2);
+			yield return new WaitForSeconds (0.05f);
+		}
+	}
+
+	IEnumerator FadeRestartGame(){
+		volume = 0;
+		volume2 = -80f; 
+		float tempFloat;
+		bool musicFloat = masterMixer.GetFloat ("MusicHigh", out tempFloat);
+		if (!musicFloat) {
+
+		} else {
+			volume3 = tempFloat;
+		}
+		//volume3 = masterMixer.GetFloat ("MusicHigh");
+		while (volume > -78) {
+			volume -= 1;
+			if (volume3 > -78) {
+				volume3 -= 1;
+			}
+
+			if (volume2 < 0) {
+				volume2 += 5;
+			}
+
+			if (volume < -20) {
+				volume = -80f;
+				volume3 = -80f;
+			}
+			masterMixer.SetFloat ("MusicMedium", volume);
+			masterMixer.SetFloat ("MusicHigh", volume3);
+			masterMixer.SetFloat ("MusicLow", volume2);
+			yield return new WaitForSeconds (0.05f);
+		}
 	}
 }

@@ -64,9 +64,9 @@ public class UnicornMove : MonoBehaviour {
 	void Start () {
 
 		//allow you to start the scene without the SoundManager gameobject
-		if (GameObject.FindGameObjectWithTag ("SoundManager") != null) {
-			GameObject.FindGameObjectWithTag ("SoundManager").GetComponent<SoundManager> ().StartGameMusic ();
-		}
+	//	if (GameObject.FindGameObjectWithTag ("SoundManager") != null) {
+	//		GameObject.FindGameObjectWithTag ("SoundManager").GetComponent<SoundManager> ().StartGameMusic ();
+	//	}
 		//initialize direction that player is facing for animator
 		facingLeft = true;
 
@@ -299,20 +299,21 @@ public class UnicornMove : MonoBehaviour {
 	//reset the game
 	public void RestartGame(){
 		EndSuperMode ();
+		GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager> ().RestartGameMusic ();
 		SceneManager.LoadScene ("prototype5");
 	}
 
 	//go to menu
 	public void GameToMenu(){
 		EndSuperMode ();
-		GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager> ().StartIntroMusic ();
+		GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager> ().GameToMenu ();
 		SceneManager.LoadScene ("Menu");
 	}
 
 	//go to Spread the Love menu
 	public void GameToSpreadLove(){
 		EndSuperMode ();
-		GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager> ().StartIntroMusic ();
+		GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager> ().GameToShop ();
 		SceneManager.LoadScene ("SpreadTheLove");
 	}
 

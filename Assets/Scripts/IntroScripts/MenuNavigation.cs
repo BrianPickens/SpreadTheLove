@@ -17,10 +17,12 @@ public class MenuNavigation : MonoBehaviour {
 
 	public void MenuToGame(){
 		if (TutorialModeScript.tutorialOff) {
+			GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager> ().MenuToGame ();
 			SceneManager.LoadScene ("prototype5");
 		} else {
 			TutorialModeScript.tutorialOff = true;
 			GameObject.FindGameObjectWithTag ("SaveSettings").GetComponent<SaveSettingsScript> ().SaveSettings ();
+			GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager> ().MenuToGame ();
 			SceneManager.LoadScene ("Tutorial");
 		}
 			
@@ -31,6 +33,7 @@ public class MenuNavigation : MonoBehaviour {
 	}
 
 	public void MenuToSpread(){
+		GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager> ().MenuToShop ();
 		SceneManager.LoadScene ("SpreadTheLove");
 	}
 }

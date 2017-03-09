@@ -40,7 +40,7 @@ public class TutorialModeScript : MonoBehaviour {
 		if (musicOff) {
 			musicOff = false;
 			SoundManager.AudioOff = false;
-			GameObject.FindGameObjectWithTag ("SoundManager").GetComponent<SoundManager> ().StartIntroMusic ();
+			GameObject.FindGameObjectWithTag ("SoundManager").GetComponent<SoundManager> ().MenuMusicPlay ();
 			MusicSwitch.GetComponent<Image> ().sprite = ToggleOn;
 		} else {
 			musicOff = true;

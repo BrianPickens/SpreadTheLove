@@ -72,7 +72,7 @@ public class SadUnicornIntro : MonoBehaviour {
 
 	IEnumerator WaitOnCamera(){
 		yield return new WaitForSeconds (3.4f);
-		SoundHolder.GetComponent<SoundManager> ().StartIntroMusic ();
+		SoundHolder.GetComponent<SoundManager> ().RampToMenu();
 		CanvasTitle.GetComponent<DropIntroCanvasScript> ().DropCanvas ();
 		yield return new WaitForSeconds (1f);
 		SceneManager.LoadScene ("Menu");
