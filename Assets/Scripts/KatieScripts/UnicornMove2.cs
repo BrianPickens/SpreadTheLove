@@ -3,7 +3,9 @@ using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class UnicornMove : MonoBehaviour {
+
+// just a copy of move unicorn
+public class UnicornMove2 : MonoBehaviour {
 
 	public static bool superMode;
 	public static int multiplier;
@@ -59,10 +61,7 @@ public class UnicornMove : MonoBehaviour {
 	//debug slider for movement if usb screws up
 	public bool mouseMovement;
 	public float debugMovementSlider;
-
-	//cam shake
-	public float cameraShakeDuration = 0.25f;
-	public float cameraShakeAmount = 0.2f;
+	//
 
 	void Start () {
 
@@ -123,12 +122,12 @@ public class UnicornMove : MonoBehaviour {
 		}
 
 
-		//flip the character sprite back and forth depending on which way the phone is tilted
-		if (Input.acceleration.x < 0 && !facingLeft && !gameEnding) {
-			Flip ();
-		} else if (Input.acceleration.x > 0 && facingLeft && !gameEnding) {
-			Flip ();
-		}
+//		//flip the character sprite back and forth depending on which way the phone is tilted
+//		if (Input.acceleration.x < 0 && !facingLeft && !gameEnding) {
+//			Flip ();
+//		} else if (Input.acceleration.x > 0 && facingLeft && !gameEnding) {
+//			Flip ();
+//		}
 
 		//change verticle velocity
 		if (travelingUp) {
@@ -191,13 +190,13 @@ public class UnicornMove : MonoBehaviour {
 
 	}
 
-	//flips the unicorn sprite based on phone tilt direction
-	void Flip(){
-		facingLeft = !facingLeft;
-		Vector2 theScale = transform.localScale;
-		theScale.x *= -1;
-		transform.localScale = theScale;
-	}
+//	//flips the unicorn sprite based on phone tilt direction
+//	void Flip(){
+//		facingLeft = !facingLeft;
+//		Vector2 theScale = transform.localScale;
+//		theScale.x *= -1;
+//		transform.localScale = theScale;
+//	}
 
 	//when the love meter is full and player touches the screeen.  starts super mode, creates particles, sounds, turns on the big and small colliders to make things happy
 	public void LoveMeterFull(){
@@ -205,8 +204,6 @@ public class UnicornMove : MonoBehaviour {
 		HappySplode.SetActive (true);
 		GetComponent<AudioSource> ().PlayOneShot (Love);
 		HappyZone.SetActive (true);
-		//Camera Shake!
-		CameraShake.Shake( cameraShakeDuration, cameraShakeAmount);
 		StartCoroutine (HappyZoneReset ());
 		if (!superMode) {
 			StartSuperMode ();
