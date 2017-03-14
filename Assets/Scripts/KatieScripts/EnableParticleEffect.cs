@@ -18,7 +18,7 @@ public class EnableParticleEffect : MonoBehaviour {
 	void Start () {
 		_myRigidbody = GetComponent<Rigidbody2D> ();
 		unicornMove = gameObject.GetComponent<UnicornMove> ();
-//		particles = this.GetComponent<ParticleSystem>();
+
 	}
 
 	void OnTriggerEnter2D (Collider2D other){
