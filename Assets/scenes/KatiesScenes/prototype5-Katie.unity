@@ -16696,6 +16696,7 @@ GameObject:
   - component: {fileID: 1575142021}
   - component: {fileID: 1575142020}
   - component: {fileID: 1575142022}
+  - component: {fileID: 1575142023}
   m_Layer: 0
   m_Name: HighMusic
   m_TagString: Untagged
@@ -16810,6 +16811,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 2036857272}
   camSatEnd: 1
+--- !u!114 &1575142023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1575142019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0333287c9983c444b878006620b609ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cloudObjPool: {fileID: 1876932059}
+  numOfClouds: 2
+  minSpawnRange: 15.4
+  maxSpawnRange: 27.3
+  startPosX: 31.6
+  maxXPos: -35.4
+  minSpeed: 2
+  maxSpeed: 5
 --- !u!4 &1578967817 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4000011201431064, guid: 97ab8d283e1d9b34a81bffff953f26bc,
@@ -17197,13 +17217,14 @@ GameObject:
   - component: {fileID: 1716391422}
   - component: {fileID: 1716391421}
   - component: {fileID: 1716391423}
+  - component: {fileID: 1716391424}
   m_Layer: 0
   m_Name: MediumMusic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!82 &1716391421
 AudioSource:
   m_ObjectHideFlags: 0
@@ -17311,6 +17332,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 2036857272}
   camSatEnd: 0.6
+--- !u!114 &1716391424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1716391420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0333287c9983c444b878006620b609ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cloudObjPool: {fileID: 1876932059}
+  numOfClouds: 2
+  minSpawnRange: 15.4
+  maxSpawnRange: 27.3
+  startPosX: -35.4
+  maxXPos: 30.5
+  minSpeed: 2
+  maxSpeed: 4
 --- !u!1 &1740673629
 GameObject:
   m_ObjectHideFlags: 0
@@ -17771,13 +17811,14 @@ GameObject:
   - component: {fileID: 1868534936}
   - component: {fileID: 1868534935}
   - component: {fileID: 1868534937}
+  - component: {fileID: 1868534938}
   m_Layer: 0
   m_Name: LowMusic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!82 &1868534935
 AudioSource:
   m_ObjectHideFlags: 0
@@ -17885,6 +17926,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 2036857272}
   camSatEnd: 0.2
+--- !u!114 &1868534938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1868534934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0333287c9983c444b878006620b609ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cloudObjPool: {fileID: 1876932059}
+  numOfClouds: 2
+  minSpawnRange: 15.4
+  maxSpawnRange: 27.3
+  startPosX: -35.1
+  maxXPos: 30.5
+  minSpeed: 2
+  maxSpeed: 4
 --- !u!1001 &1870877849
 Prefab:
   m_ObjectHideFlags: 0
@@ -17940,6 +18000,47 @@ GameObject:
   m_PrefabParentObject: {fileID: 1000010211472206, guid: 97ab8d283e1d9b34a81bffff953f26bc,
     type: 2}
   m_PrefabInternal: {fileID: 315994369}
+--- !u!1 &1876932058
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1876932060}
+  - component: {fileID: 1876932059}
+  m_Layer: 0
+  m_Name: CloudObjectPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1876932059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1876932058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9edadb7f298e64545a185931563fb03d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 1026197722593650, guid: 6278d86f512b34e11a229a7bb4b1ca4f, type: 2}
+--- !u!4 &1876932060
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1876932058}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.1340909, y: 8.332965, z: 14.254257}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1878338657
 Prefab:
   m_ObjectHideFlags: 0
@@ -18384,7 +18485,7 @@ GameObject:
   - component: {fileID: 2000764298}
   m_Layer: 0
   m_Name: UnicornPlayer
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18502,7 +18603,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: b6c47a0ffaf4749118126cf7a189d2c3, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
@@ -18522,6 +18623,7 @@ MonoBehaviour:
   emitNumParticles: 20
   cameraShakeDuration: 0.25
   cameraShakeAmount: 0.2
+  unicornMove: {fileID: 0}
 --- !u!82 &2000764295
 AudioSource:
   m_ObjectHideFlags: 0
