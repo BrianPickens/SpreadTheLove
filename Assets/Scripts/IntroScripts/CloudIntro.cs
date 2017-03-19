@@ -7,9 +7,14 @@ public class CloudIntro : MonoBehaviour {
 	public Sprite CloudHappy;
 	public Sprite CloudSad;
 
+	private Animator _myanim;
+
+	private bool cloudSlideIn;
+	private bool cloudSlideOut;
+
 	// Use this for initialization
 	void Start () {
-
+		_myanim = GetComponent<Animator> ();
 	}
 
 	// Update is called once per frame
@@ -23,5 +28,13 @@ public class CloudIntro : MonoBehaviour {
 
 	public void SadCloud(){
 		GetComponent<SpriteRenderer> ().sprite = CloudSad;
+	}
+
+	public void SlideInCloud(){
+		_myanim.SetBool ("CloudSlideIn", true);
+	}
+
+	public void SlideOutCloud(){
+		_myanim.SetBool ("CloudSlideOut", true);
 	}
 }

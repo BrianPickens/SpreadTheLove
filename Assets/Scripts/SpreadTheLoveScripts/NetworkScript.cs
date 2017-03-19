@@ -9,11 +9,13 @@ public class NetworkScript : MonoBehaviour {
 	//used for presents
 	//public static bool activePresent;
 
+	//public Sprite OpenPresent;
 
 	public static int activeCompliment;
 	public bool checkForCompliments;
 	public GameObject[] CommentIcons;
 	public static bool[] complimentStates = new bool[4];
+	public GameObject[] ComplimentPopUps;
 
 
 
@@ -169,28 +171,36 @@ public class NetworkScript : MonoBehaviour {
 	//turning off presents
 	public void Comment1Viewed(){
 		complimentStates [0] = false;
-		CommentIcons [0].SetActive (false);
+		//CommentIcons [0].GetComponent<SpriteRenderer> ().sprite = OpenPresent;
+		ComplimentPopUps [0].SetActive (true);
+		ComplimentPopUps [0].GetComponent<PresentReaderScript> ().GeneratePresentVoice ();
 		activeCompliment--;
 		GameObject.FindGameObjectWithTag ("SaveSettings").GetComponent<SaveSettingsScript> ().SaveSettings ();
 	}
 
 	public void Comment2Viewed(){
 		complimentStates [1] = false;
-		CommentIcons [1].SetActive (false);
+		//CommentIcons [1].GetComponent<SpriteRenderer> ().sprite = OpenPresent;
+		ComplimentPopUps [1].SetActive (true);
+		ComplimentPopUps [1].GetComponent<PresentReaderScript> ().GeneratePresentVoice ();
 		activeCompliment--;
 		GameObject.FindGameObjectWithTag ("SaveSettings").GetComponent<SaveSettingsScript> ().SaveSettings ();
 	}
 
 	public void Comment3Viewed(){
 		complimentStates [2] = false;
-		CommentIcons [2].SetActive (false);
+		//CommentIcons [2].GetComponent<SpriteRenderer> ().sprite = OpenPresent;
+		ComplimentPopUps [2].SetActive (true);
+		ComplimentPopUps [2].GetComponent<PresentReaderScript> ().GeneratePresentVoice ();
 		activeCompliment--;
 		GameObject.FindGameObjectWithTag ("SaveSettings").GetComponent<SaveSettingsScript> ().SaveSettings ();
 	}
 
 	public void Comment4Viewed(){
 		complimentStates [3] = false;
-		CommentIcons [3].SetActive (false);
+		//CommentIcons [3].GetComponent<SpriteRenderer> ().sprite = OpenPresent;
+		ComplimentPopUps [3].SetActive (true);
+		ComplimentPopUps [3].GetComponent<PresentReaderScript> ().GeneratePresentVoice ();
 		activeCompliment--;
 		GameObject.FindGameObjectWithTag ("SaveSettings").GetComponent<SaveSettingsScript> ().SaveSettings ();
 	}

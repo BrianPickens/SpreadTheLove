@@ -25,12 +25,16 @@ AudioMixerController:
     name: MusicLollipop
   - guid: 67990e14dddd20d42bf342370270507a
     name: MusicLow
+  - guid: 15e1a70cc0afc664b8abb3ed41036ce8
+    name: MasterVolume
   - guid: f08e55da1ee448b4e91b1575a5ed9a2c
     name: MusicMedium
   - guid: 40ca0e549fbcff94e82fabdf849651de
     name: MusicMenu
   - guid: 800c13d08f7bd144d8a682723e884cb3
     name: MusicVolume
+  - guid: e3d5421deed54b84a917dc12e687631d
+    name: SfxVolume
   - guid: 3f3b824af2b3bfa4ba3c6f5facef650c
     name: MusicShop
   m_AudioMixerGroupViews:

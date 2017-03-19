@@ -10,6 +10,8 @@ public class UnicornMove : MonoBehaviour {
 
 	private Transform _myTransform;
 	private Rigidbody2D _myRigidbody;
+	private Animator _myanim;
+	private SpriteRenderer _mySprite;
 
 	public GameObject LoveSplode;
 	public GameObject LoveMeter;
@@ -28,6 +30,8 @@ public class UnicornMove : MonoBehaviour {
 	public Sprite LolliMultiplier;
 	public Sprite WaffleMultiplier;
 	public Sprite DonutMultiplier;
+	public Sprite UnicornLeft;
+	public Sprite UnicornRight;
 
 	private bool travelingUp;
 	private bool gameEnding;
@@ -35,6 +39,7 @@ public class UnicornMove : MonoBehaviour {
 	private bool stopInteraction;
 	private bool facingLeft;
 	private bool mediumMusicOn;
+	private int direction;
 
 	public float speed;
 	public float baseSpeed;
@@ -43,6 +48,7 @@ public class UnicornMove : MonoBehaviour {
 	public float turnSpeed;
 	public float baseTurnSpeed;
 	public float superModeBaseTurnSpeed;
+	public float rotationAngle;
 
 	private int happyObjectCount;
 	private int happyObjectMax;
@@ -70,6 +76,9 @@ public class UnicornMove : MonoBehaviour {
 	//	if (GameObject.FindGameObjectWithTag ("SoundManager") != null) {
 	//		GameObject.FindGameObjectWithTag ("SoundManager").GetComponent<SoundManager> ().StartGameMusic ();
 	//	}
+
+		direction = -1;
+
 		//initialize direction that player is facing for animator
 		facingLeft = true;
 
@@ -91,6 +100,8 @@ public class UnicornMove : MonoBehaviour {
 		//grabbing transforma dn ridgidbody for movement
 		_myRigidbody = GetComponent<Rigidbody2D> ();
 		_myTransform = GetComponent<Transform> ();
+		_myanim = GetComponent<Animator> ();
+		_mySprite = GetComponent<SpriteRenderer> ();
 
 	}
 
@@ -125,16 +136,20 @@ public class UnicornMove : MonoBehaviour {
 
 		//flip the character sprite back and forth depending on which way the phone is tilted
 		if (Input.acceleration.x < 0 && !facingLeft && !gameEnding) {
+			_mySprite.sprite = UnicornLeft;
 			Flip ();
 		} else if (Input.acceleration.x > 0 && facingLeft && !gameEnding) {
+			_mySprite.sprite = UnicornRight;
 			Flip ();
 		}
 
 		//change verticle velocity
 		if (travelingUp) {
 			_myRigidbody.velocity = new Vector2 (move * turnSpeed, speed);
+			_myTransform.localEulerAngles = new Vector3 (0, 0, rotationAngle * direction);
 		} else {
 			_myRigidbody.velocity = new Vector2 (move * turnSpeed, -speed);
+			_myTransform.localEulerAngles = new Vector3 (0, 0, -rotationAngle * direction);
 		}
 			
 		//if bounds is checked, constrain the unicorn to bounds specified in the inspector
@@ -194,9 +209,10 @@ public class UnicornMove : MonoBehaviour {
 	//flips the unicorn sprite based on phone tilt direction
 	void Flip(){
 		facingLeft = !facingLeft;
-		Vector2 theScale = transform.localScale;
-		theScale.x *= -1;
-		transform.localScale = theScale;
+		//Vector2 theScale = transform.localScale;
+		//theScale.x *= -1;
+		//transform.localScale = theScale;
+		direction *= -1;
 	}
 
 	//when the love meter is full and player touches the screeen.  starts super mode, creates particles, sounds, turns on the big and small colliders to make things happy
@@ -206,7 +222,7 @@ public class UnicornMove : MonoBehaviour {
 		GetComponent<AudioSource> ().PlayOneShot (Love);
 		HappyZone.SetActive (true);
 		//Camera Shake!
-		CameraShake.Shake( cameraShakeDuration, cameraShakeAmount);
+		//CameraShake.Shake( cameraShakeDuration, cameraShakeAmount);
 		StartCoroutine (HappyZoneReset ());
 		if (!superMode) {
 			StartSuperMode ();
@@ -288,6 +304,7 @@ public class UnicornMove : MonoBehaviour {
 		float Max = happyObjectMax;
 		float happyObjectDifference = Count/Max;
 		TimeOfDay.GetComponent<Image> ().color = new Color (TimeOfDay.GetComponent<Image> ().color.r, TimeOfDay.GetComponent<Image> ().color.g, TimeOfDay.GetComponent<Image> ().color.b, happyObjectDifference);
+		GetComponent<ChangeCameraSaturation> ().camSatEnd = happyObjectDifference;
 	}
 
 	//end the game, stop interaction, stop movement, save the game, turn on end screen

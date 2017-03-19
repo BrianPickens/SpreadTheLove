@@ -21,9 +21,13 @@ public class LollipopControl : MonoBehaviour {
 	public GameObject Background;
 	public GameObject BackgroundMusic;
 
+	private float holdTime;
+	private bool unicornSlide;
+
 	Animator _myanim;
 
 	void Start (){
+		holdTime = 1f;
 		_myanim = GetComponent<Animator> ();
 		myTransform = GetComponent<Transform> ();
 		fingerPos = GetComponent<Transform> ().position;
@@ -75,6 +79,11 @@ public class LollipopControl : MonoBehaviour {
 		if (followFinger) {
 			_myanim.SetBool ("LollipopGrabbed", true);
 			myTransform.position = fingerPos + new Vector2 (fingerHorizontalOffset, fingerVerticalOffset);
+			holdTime -= Time.deltaTime;
+			if (holdTime < 0 && !unicornSlide) {
+				Unicorn.GetComponent<SadUnicornIntro> ().SlideInUnicorn ();
+				unicornSlide = true;
+			}
 		} else {
 			_myanim.SetBool ("LollipopGrabbed", false);
 		}

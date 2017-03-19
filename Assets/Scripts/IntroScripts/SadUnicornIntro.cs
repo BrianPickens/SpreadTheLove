@@ -10,6 +10,8 @@ public class SadUnicornIntro : MonoBehaviour {
 	public GameObject LoveParticles;
 	public GameObject CanvasTitle;
 	public GameObject SoundHolder;
+	public GameObject StarParticles;
+	public GameObject OptionsPanel;
 
 	public Sprite HappyUnicorn;
 	public Sprite SadUnicorn;
@@ -21,9 +23,11 @@ public class SadUnicornIntro : MonoBehaviour {
 
 	private bool hasLollipop;
 
+	Animator _myanim;
+
 	// Use this for initialization
 	void Start () {
-
+		_myanim = GetComponent<Animator> ();
 	}
 
 	// Update is called once per frame
@@ -42,6 +46,7 @@ public class SadUnicornIntro : MonoBehaviour {
 			HappyParticles.SetActive (true);
 			GetComponent<SpriteRenderer> ().sprite = HappyUnicorn;
 			Cloud.GetComponent<CloudIntro> ().HappyCloud ();
+			StarParticles.SetActive (true);
 			hasLollipop = true;
 		}
 	}
@@ -52,6 +57,7 @@ public class SadUnicornIntro : MonoBehaviour {
 			HappyParticles.SetActive (false);
 			GetComponent<SpriteRenderer> ().sprite = SadUnicorn;
 			Cloud.GetComponent<CloudIntro> ().SadCloud ();
+			StarParticles.SetActive (false);
 			hasLollipop = false;
 		}
 	}
@@ -61,6 +67,7 @@ public class SadUnicornIntro : MonoBehaviour {
 			SadParticles.SetActive (false);
 			LoveParticles.SetActive (true);
 			HappyParticles.SetActive (true);
+			StarParticles.SetActive (true);
 			GetComponent<AudioSource> ().PlayOneShot (LovePoof);
 			GetComponent<SpriteRenderer> ().sprite = LollipopUnicorn;
 			Lollipop.GetComponent<LollipopControl> ().DestroyLollipop ();
@@ -70,10 +77,18 @@ public class SadUnicornIntro : MonoBehaviour {
 
 	}
 
+	public void SlideInUnicorn(){
+		Cloud.GetComponent<CloudIntro> ().SlideInCloud ();
+		_myanim.SetBool ("SlideIn", true);
+	}
+
 	IEnumerator WaitOnCamera(){
 		yield return new WaitForSeconds (3.4f);
 		SoundHolder.GetComponent<SoundManager> ().RampToMenu();
 		CanvasTitle.GetComponent<DropIntroCanvasScript> ().DropCanvas ();
+		OptionsPanel.GetComponent<SlideOptionsScript> ().SlideOptionsIn ();
+		Cloud.GetComponent<CloudIntro> ().SlideOutCloud ();
+		StarParticles.GetComponent<ParticleSystem> ().Stop ();
 		yield return new WaitForSeconds (1f);
 		SceneManager.LoadScene ("Menu");
 	}

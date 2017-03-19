@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class LoveMeterFill : MonoBehaviour {
 
 	public GameObject Unicorn;
+	public GameObject HeartIndicator;
 	public GameObject ItemHolder;
 	public Button LoveButtonButton;
 
@@ -18,7 +19,8 @@ public class LoveMeterFill : MonoBehaviour {
 	void Update () {
 	
 		if (GetComponent<Image> ().fillAmount > .99f && !UnicornMove.superMode) {
-				LoveButtonButton.interactable = true;
+			LoveButtonButton.interactable = true;
+			HeartIndicator.SetActive (true);
 		}
 			
 	}
@@ -42,6 +44,7 @@ public class LoveMeterFill : MonoBehaviour {
 
 	public void LoveButton(){
 		LoveButtonButton.interactable = false;
+		HeartIndicator.SetActive (false);
 		Unicorn.GetComponent<UnicornMove> ().LoveMeterFull ();
 		//ChangeEverything ();
 		//GetComponent<Image> ().fillAmount = 0f;

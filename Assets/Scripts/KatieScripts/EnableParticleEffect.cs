@@ -34,19 +34,19 @@ public class EnableParticleEffect : MonoBehaviour {
 		if (other.gameObject.tag == "TopEdge") {
 			particles.Emit(emitNumParticles);
 			// Also Shake Camera
-			CameraShake.Shake( cameraShakeDuration, cameraShakeAmount);
+			//CameraShake.Shake( cameraShakeDuration, cameraShakeAmount);
 		}
 
 		//if you hit the bottom of the screen, enable screen shake
 		if (other.gameObject.tag == "BottomEdge") {
 			particles.Emit(emitNumParticles);
 			// Also Shake Camera
-			CameraShake.Shake( cameraShakeDuration, cameraShakeAmount);
+			//CameraShake.Shake( cameraShakeDuration, cameraShakeAmount);
 		}
 		if (other.gameObject.tag == "Edge") {
 			particles.Emit(emitNumParticles);
 			// Also Shake Camera
-			CameraShake.Shake( cameraShakeDuration, cameraShakeAmount);
+			//CameraShake.Shake( cameraShakeDuration, cameraShakeAmount);
 		}
 
 	}

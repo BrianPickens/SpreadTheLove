@@ -68,18 +68,18 @@ public class SoundManager : MonoBehaviour {
 
 	public void IntroMusicPlay(){
 		if (!AudioOff) {
-
+			masterMixer.SetFloat ("MasterVolume", 0f);
 		} else {
-			masterMixer.SetFloat ("MusicVolume", -80f);
+			masterMixer.SetFloat ("MasterVolume", -80f);
 		}
 		LollipopLowSource.Play ();
 	}
 
 	public void MenuMusicPlay(){
 		if (!AudioOff) {
-
+			masterMixer.SetFloat ("MasterVolume", 0f);
 		} else {
-			masterMixer.SetFloat ("MusicVolume", -80f);
+			masterMixer.SetFloat ("MasterVolume", 80f);
 		}
 		TitleMusicSource.Play ();
 	}
@@ -88,7 +88,7 @@ public class SoundManager : MonoBehaviour {
 		if (!AudioOff) {
 			StartCoroutine (FadeMenuToShop ());
 		} else {
-			masterMixer.SetFloat ("MusicVolume", -80f);
+			masterMixer.SetFloat ("MasterVolume", -80f);
 		}
 		ShopMusicSource.Play ();
 	}
@@ -97,7 +97,7 @@ public class SoundManager : MonoBehaviour {
 		if (!AudioOff) {
 			StartCoroutine (FadeShopToMenu ());
 		} else {
-			masterMixer.SetFloat ("MusicVolume", -80f);
+			masterMixer.SetFloat ("MasterVolume", -80f);
 		}
 		TitleMusicSource.Play ();
 	}
@@ -106,7 +106,7 @@ public class SoundManager : MonoBehaviour {
 		if (!AudioOff) {
 			StartCoroutine (FadeIntroToRamp());
 		} else {
-			masterMixer.SetFloat ("MusicVolume", -80f);
+			masterMixer.SetFloat ("MasterVolume", -80f);
 		}
 		RampMusicSource.Play ();
 	}
@@ -115,7 +115,7 @@ public class SoundManager : MonoBehaviour {
 		if (!AudioOff) {
 			
 		} else {
-			masterMixer.SetFloat ("MusicVolume", -80f);
+			masterMixer.SetFloat ("MasterVolume", -80f);
 		}
 		TitleMusicSource.Play ();
 	}
@@ -126,7 +126,7 @@ public class SoundManager : MonoBehaviour {
 			masterMixer.SetFloat ("MusicHigh", -80f);
 			StartCoroutine (FadeMenuToGame ());
 		} else {
-			masterMixer.SetFloat ("MusicVolume", -80f);
+			masterMixer.SetFloat ("MasterVolume", -80f);
 		}
 
 		GameMusicLow.Play ();
@@ -138,7 +138,7 @@ public class SoundManager : MonoBehaviour {
 		if (!AudioOff) {
 			StartCoroutine (FadeGameToMenu ());
 		} else {
-			masterMixer.SetFloat ("MusicVolume", -80f);
+			masterMixer.SetFloat ("MasterVolume", -80f);
 		}
 		TitleMusicSource.Play ();
 	}
@@ -147,7 +147,7 @@ public class SoundManager : MonoBehaviour {
 		if (!AudioOff) {
 			StartCoroutine (FadeGameToShop ());
 		} else {
-			masterMixer.SetFloat ("MusicVolume", -80f);
+			masterMixer.SetFloat ("MasterVolume", -80f);
 		}
 		ShopMusicSource.Play ();
 	}
@@ -156,7 +156,7 @@ public class SoundManager : MonoBehaviour {
 		if (!AudioOff) {
 			StartCoroutine (FadeRestartGame ());
 		} else {
-			masterMixer.SetFloat ("MusicVolume", -80f);
+			masterMixer.SetFloat ("MasterVolume", -80f);
 		}
 		GameMusicLow.Play ();
 		GameMusicMedium.Play ();
@@ -185,7 +185,7 @@ public class SoundManager : MonoBehaviour {
 	}
 
 	public void TurnOffMusic(){
-		masterMixer.SetFloat ("MusicVolume", -80f);
+		masterMixer.SetFloat ("MasterVolume", -80f);
 		//GetComponent<AudioSource> ().Stop ();
 	}
 		

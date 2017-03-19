@@ -21,17 +21,27 @@ public class PassingClouds : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		for (int i = 0; i < numOfClouds; i++) {
-			SpawnClouds ();
-		}
+		StartCoroutine (SpawnClouds ());
+		//for (int i = 0; i < numOfClouds; i++) {
+			//SpawnClouds ();
+		//}
 	}
 
-	void SpawnClouds(){
+//	void SpawnClouds(){
+//
+//		float ranYPos = Random.Range (minSpawnRange,maxSpawnRange);
+//		Vector2 pos = new Vector2 (startPosX,ranYPos);
+//		GameObject newCloud = cloudObjPool.GetComponent<SimpleObjectPool>().GetObject(pos);
+//
+//	}
 
-		float ranYPos = Random.Range (minSpawnRange,maxSpawnRange);
-		Vector2 pos = new Vector2 (startPosX,ranYPos);
-		GameObject newCloud = cloudObjPool.GetComponent<SimpleObjectPool>().GetObject(pos);
-
+	IEnumerator SpawnClouds(){
+		for (int i = 0; i < numOfClouds; i++) {
+			float ranYPos = Random.Range (minSpawnRange, maxSpawnRange);
+			Vector2 pos = new Vector2 (startPosX, ranYPos);
+			GameObject newCloud = cloudObjPool.GetComponent<SimpleObjectPool> ().GetObject (pos);
+			yield return new WaitForSeconds (5f);
+		}
 	}
 
 }

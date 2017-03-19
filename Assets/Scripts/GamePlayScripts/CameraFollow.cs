@@ -5,6 +5,7 @@ public class CameraFollow : MonoBehaviour {
 
 
 	private Vector2 velocity;
+	private bool cameraUp;
 
 	public float cameraYoffset;
 	public float cameraXoffset;
@@ -27,6 +28,7 @@ public class CameraFollow : MonoBehaviour {
 
 		_myTransform = GetComponent<Transform> ();
 		cameraYoffset = 2f;
+		cameraUp = false;
 	}
 
 	void FixedUpdate(){
@@ -60,10 +62,30 @@ public class CameraFollow : MonoBehaviour {
 	}
 
 	public void TopCamera(){
-		cameraYoffset = -2f;
+		cameraUp = true;
+		StartCoroutine (SetTopOffset ());
+		//cameraYoffset = -2f;
 	}
 
 	public void BottomCamera(){
-		cameraYoffset = 2f;
+		cameraUp = false;
+		StartCoroutine (SetBottomOffset ());
+		//cameraYoffset = 2f;
+	}
+
+	IEnumerator SetTopOffset(){
+		while (cameraUp) {
+			cameraYoffset = Mathf.Lerp (cameraYoffset, -2f, Time.deltaTime);
+			//Debug.Log (cameraYoffset);
+			yield return new WaitForSeconds (0.01f);
+		}
+	}
+
+	IEnumerator SetBottomOffset(){
+		while (!cameraUp) {
+			cameraYoffset = Mathf.Lerp (cameraYoffset, 2f, Time.deltaTime);
+			//Debug.Log (cameraYoffset);
+			yield return new WaitForSeconds (0.01f);
+		}
 	}
 }
