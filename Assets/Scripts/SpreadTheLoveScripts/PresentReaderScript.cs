@@ -21,6 +21,7 @@ public class PresentReaderScript : MonoBehaviour {
 		int complimentChoice = Random.Range (0, 3);
 		GetComponent<AudioSource> ().PlayOneShot (Phrases[complimentChoice]);
 		GetComponent<SpriteRenderer> ().sprite = Sprites [complimentChoice];
+		StartCoroutine (TurnOffPopUp ());
 	}
 
 	IEnumerator TurnOffPopUp(){

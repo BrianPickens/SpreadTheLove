@@ -32,7 +32,7 @@ public class SaveSettingsScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		//Debug.Log ("I'm Working");
+//		Debug.Log ("I'm Working");
 //		if (Input.GetKeyDown(KeyCode.Space)) {
 //			Debug.Log ("Save Deleted");
 //			PlayerPrefs.DeleteAll ();

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using SimpleJSON;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class NetworkScript : MonoBehaviour {
 
@@ -133,6 +134,7 @@ public class NetworkScript : MonoBehaviour {
 
 		} else {
 			Debug.Log("WWW Error: "+ www.error);
+			Debug.Log ("not connected to internet");
 			foreach(string s in www.responseHeaders.Keys){
 				Debug.Log(s);
 			}
@@ -171,7 +173,7 @@ public class NetworkScript : MonoBehaviour {
 	//turning off presents
 	public void Comment1Viewed(){
 		complimentStates [0] = false;
-		//CommentIcons [0].GetComponent<SpriteRenderer> ().sprite = OpenPresent;
+		CommentIcons [0].GetComponent<Button> ().interactable = false;
 		ComplimentPopUps [0].SetActive (true);
 		ComplimentPopUps [0].GetComponent<PresentReaderScript> ().GeneratePresentVoice ();
 		activeCompliment--;
@@ -180,7 +182,7 @@ public class NetworkScript : MonoBehaviour {
 
 	public void Comment2Viewed(){
 		complimentStates [1] = false;
-		//CommentIcons [1].GetComponent<SpriteRenderer> ().sprite = OpenPresent;
+		CommentIcons [1].GetComponent<Button> ().interactable = false;
 		ComplimentPopUps [1].SetActive (true);
 		ComplimentPopUps [1].GetComponent<PresentReaderScript> ().GeneratePresentVoice ();
 		activeCompliment--;
@@ -189,7 +191,7 @@ public class NetworkScript : MonoBehaviour {
 
 	public void Comment3Viewed(){
 		complimentStates [2] = false;
-		//CommentIcons [2].GetComponent<SpriteRenderer> ().sprite = OpenPresent;
+		CommentIcons [2].GetComponent<Button> ().interactable = false;
 		ComplimentPopUps [2].SetActive (true);
 		ComplimentPopUps [2].GetComponent<PresentReaderScript> ().GeneratePresentVoice ();
 		activeCompliment--;
@@ -198,7 +200,7 @@ public class NetworkScript : MonoBehaviour {
 
 	public void Comment4Viewed(){
 		complimentStates [3] = false;
-		//CommentIcons [3].GetComponent<SpriteRenderer> ().sprite = OpenPresent;
+		CommentIcons [3].GetComponent<Button> ().interactable = false;
 		ComplimentPopUps [3].SetActive (true);
 		ComplimentPopUps [3].GetComponent<PresentReaderScript> ().GeneratePresentVoice ();
 		activeCompliment--;

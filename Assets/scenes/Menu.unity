@@ -1133,8 +1133,8 @@ MonoBehaviour:
   ComplimentPopUps:
   - {fileID: 887232990}
   - {fileID: 539764796}
-  - {fileID: 810785977}
   - {fileID: 76886618}
+  - {fileID: 810785977}
 --- !u!114 &632854079
 MonoBehaviour:
   m_ObjectHideFlags: 0
