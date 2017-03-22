@@ -210,10 +210,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GreySprite1: {fileID: 21300000, guid: 890d5ac7cfa4ce641bcbf3bf4b1837a5, type: 3}
   GreySprite2: {fileID: 21300000, guid: fbea262f1c91aac4db3eb7aa28be13ff, type: 3}
-  GreySprite3: {fileID: 21300000, guid: a0d90bdadcc57c749aa5e06c20351512, type: 3}
+  GreySprite3: {fileID: 21300000, guid: 890d5ac7cfa4ce641bcbf3bf4b1837a5, type: 3}
   GoodSprite1: {fileID: 21300000, guid: ad55b4369f56192479d675949e2fe11d, type: 3}
   GoodSprite2: {fileID: 21300000, guid: fafad571903663541b5c017e61561567, type: 3}
-  GoodSprite3: {fileID: 21300000, guid: 0c5ea896fa25daa4c9707c11a78c078a, type: 3}
+  GoodSprite3: {fileID: 21300000, guid: ad55b4369f56192479d675949e2fe11d, type: 3}
   Highlighted1: {fileID: 21300000, guid: bd405dd7eb2b01b4fb24aa65318ba91e, type: 3}
   Highlighted2: {fileID: 21300000, guid: 567a205ae9a900a44a551750d1336ae2, type: 3}
   superModeActive: 0
@@ -255,7 +255,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a0d90bdadcc57c749aa5e06c20351512, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 890d5ac7cfa4ce641bcbf3bf4b1837a5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

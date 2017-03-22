@@ -299,7 +299,7 @@ MonoBehaviour:
   tutScreenArray:
   - screenName: Screen 0
     instructions: Welcome to the tutorial! Let's get started shall we?
-    sprite: {fileID: 21300000, guid: 16125a454c89144c78cc13e646684a2f, type: 3}
+    sprite: {fileID: 21300000, guid: f73f4c3ac9392784e9f04dcbeefab958, type: 3}
     isLeftArrowOn: 0
     isRightArrowOn: 0
     isTutorialDone: 0
@@ -355,7 +355,7 @@ MonoBehaviour:
     instructions: While in super mode, guide your unicorn over highlighted objects
       to make them happy! Also any candy collected in super mode will increase your
       multiplier!
-    sprite: {fileID: 21300000, guid: ec37c5424c051034f94b0f3372888842, type: 3}
+    sprite: {fileID: 21300000, guid: 99ff445efebfa5f44b0585cd1e4c4c84, type: 3}
     isLeftArrowOn: 0
     isRightArrowOn: 0
     isTutorialDone: 0
@@ -5485,7 +5485,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 220aaf99344ac4a4d8b5a147c679b2d8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a8037c6bdacad8346b1cf81c104bd535, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5515,7 +5515,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -1.6000004, y: 13.3}
-  m_SizeDelta: {x: 58.1, y: 32.6}
+  m_SizeDelta: {x: 58.1, y: 58}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &452705177
 Animator:
@@ -13552,8 +13552,8 @@ MonoBehaviour:
   LolliMultiplier: {fileID: 21300000, guid: 1eae130af8136e0458f18e1b17c3a8c7, type: 3}
   WaffleMultiplier: {fileID: 21300000, guid: 94e301c5a27bc16408a4072a5cf82e1a, type: 3}
   DonutMultiplier: {fileID: 21300000, guid: 9a7339dbe125ca14b8ce4d02dd8f91dc, type: 3}
-  UnicornLeft: {fileID: 21300000, guid: ab301f0ee7848394590f90b4fa88edee, type: 3}
-  UnicornRight: {fileID: 21300000, guid: 63d46e59e31c1f242851266c322f633a, type: 3}
+  UnicornLeft: {fileID: 21300000, guid: f73f4c3ac9392784e9f04dcbeefab958, type: 3}
+  UnicornRight: {fileID: 21300000, guid: 511b4fecf5a790541a05b98dae96c49f, type: 3}
   speed: 4
   baseSpeed: 4
   superModeBaseSpeed: 6
@@ -13735,7 +13735,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 4
-  m_Sprite: {fileID: 21300000, guid: ab301f0ee7848394590f90b4fa88edee, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f73f4c3ac9392784e9f04dcbeefab958, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -14927,7 +14927,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -1.6, y: 13.3}
-  m_SizeDelta: {x: 58.1, y: 32.6}
+  m_SizeDelta: {x: 58.1, y: 58}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1588311404
 MonoBehaviour:
@@ -14948,7 +14948,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 63097ec8333fd2c45865abf0b457cfc4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a4d0b98786eeb0e458709c5932f63318, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -15161,7 +15161,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -0.000030517578}
-  m_SizeDelta: {x: 2134, y: 1200}
+  m_SizeDelta: {x: 2134, y: 1493.44}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1627213195
 MonoBehaviour:
@@ -15182,8 +15182,8 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 4a5ab96a40dee0440a275ec90bbb6764, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: e30cfe4c0d8fbd64d92a8b4e77cf4c71, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -16645,6 +16645,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Unicorn: {fileID: 1383890806}
+  HeartIndicator: {fileID: 0}
   ItemHolder: {fileID: 1545093908}
   LoveButtonButton: {fileID: 230296798}
 --- !u!114 &1932827539

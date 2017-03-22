@@ -91,6 +91,7 @@ public class LollipopControl : MonoBehaviour {
 	}
 
 	public void DestroyLollipop(){
+		Background.GetComponent<Image> ().color = Color.white;
 		Background.GetComponent<Image> ().sprite = BackgroundGood;
 		BackgroundMusic.GetComponent<SoundManager> ().IntroToRamp ();
 		Destroy (this.gameObject);

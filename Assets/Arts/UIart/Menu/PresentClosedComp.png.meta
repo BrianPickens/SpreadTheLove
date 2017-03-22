@@ -1,9 +1,10 @@
 fileFormatVersion: 2
-guid: 0b2c5f0cf4ad42f4088d7310724d59f9
-timeCreated: 1490075024
+guid: 26f9ee81d8296f646a4702e1b886c77e
+timeCreated: 1490075266
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: PresentClosedComp_0
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -34,12 +35,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteBorder: {x: 253, y: 191, z: 275, w: 184}
   spritePixelsToUnits: 100
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -84,7 +85,20 @@ TextureImporter:
     overridden: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: PresentClosedComp_0
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 199
+        width: 482
+        height: 637
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
     outline: []
   spritePackingTag: 
   userData: 
