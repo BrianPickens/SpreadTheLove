@@ -19,13 +19,16 @@ public class PresentReaderScript : MonoBehaviour {
 
 	public void GeneratePresentVoice(){
 		int complimentChoice = Random.Range (0, 3);
-		GetComponent<AudioSource> ().PlayOneShot (Phrases[complimentChoice]);
+		if (!SoundManager.AudioOff) {
+			GetComponent<AudioSource> ().PlayOneShot (Phrases [complimentChoice]);
+		}
 		GetComponent<SpriteRenderer> ().sprite = Sprites [complimentChoice];
 		StartCoroutine (TurnOffPopUp ());
 	}
 
 	IEnumerator TurnOffPopUp(){
 		yield return new WaitForSeconds(2f);
+		this.transform.parent.gameObject.SetActive (false);
 		this.gameObject.SetActive (false);
 	}
 		

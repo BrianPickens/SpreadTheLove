@@ -11,6 +11,7 @@ public class IncreaseHappyScript : MonoBehaviour {
 		public Sprite GoodSprite3;
 		public Sprite Highlighted1;
 		public Sprite Highlighted2;
+		public GameObject ParticleSpray;
 		public bool superModeActive;
 		public int itemType;
 		public int itemState;
@@ -40,6 +41,7 @@ public class IncreaseHappyScript : MonoBehaviour {
 				GetComponent<SpriteRenderer> ().sprite = Highlighted2;
 				break;
 			}
+			ParticleSpray.SetActive (true);
 			superModeActive = true;
 		} else if (!UnicornMove.superMode && superModeActive && itemState == 1) {
 			switch (itemType) {
@@ -52,7 +54,7 @@ public class IncreaseHappyScript : MonoBehaviour {
 				break;
 
 			}
-
+			ParticleSpray.SetActive (false);
 			superModeActive = false;
 		}
 
@@ -107,7 +109,7 @@ public class IncreaseHappyScript : MonoBehaviour {
 
 				break;
 			}
-
+		ParticleSpray.SetActive (false);
 
 		}
 	}

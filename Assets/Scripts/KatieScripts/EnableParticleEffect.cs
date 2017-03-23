@@ -12,11 +12,11 @@ public class EnableParticleEffect : MonoBehaviour {
 	public float cameraShakeDuration = 0.25f;
 	public float cameraShakeAmount = 0.2f;
 	public UnicornMove unicornMove;
-	private Rigidbody2D _myRigidbody;
+//	private Rigidbody2D _myRigidbody;
 
 	// Use this for initialization
 	void Start () {
-		_myRigidbody = GetComponent<Rigidbody2D> ();
+//		_myRigidbody = GetComponent<Rigidbody2D> ();
 		unicornMove = gameObject.GetComponent<UnicornMove> ();
 
 	}
@@ -24,7 +24,7 @@ public class EnableParticleEffect : MonoBehaviour {
 	void OnTriggerEnter2D (Collider2D other){
 
 		if (other.gameObject.tag == "Cloud") {
-			float move = Input.acceleration.x;
+//			float move = Input.acceleration.x;
 //			_myRigidbody.velocity = new Vector2 (move * unicornMove.turnSpeed, unicornMove.speed);
 //			particles.Emit(emitNumParticles);
 			// Also Shake Camera

@@ -170,9 +170,12 @@ public class SoundManager : MonoBehaviour {
 
 	public void StartSuperModeMusic(){
 		if (!mediumOn) {
-			StartCoroutine (FadeToSuperModeFromLow ());
+			//StartCoroutine (FadeToSuperModeFromLow ());
+			masterMixer.SetFloat ("MusicLow", -80);
+			masterMixer.SetFloat ("MusicHigh", 0f);
 		} else {
-			StartCoroutine (FadeToSuperModeFromMedium ());
+			//StartCoroutine (FadeToSuperModeFromMedium ());
+			masterMixer.SetFloat ("MusicHigh", 0f);
 		}
 	}
 
@@ -261,40 +264,47 @@ public class SoundManager : MonoBehaviour {
 		}
 	}
 
-	IEnumerator FadeToSuperModeFromLow(){
-		volume = 0;
-		volume2 = -80f; 
-		while (volume > -78) {
-			volume -= 1;
-			if (volume2 < 0) {
-				volume2 += 10;
-			}
+//	IEnumerator FadeToSuperModeFromLow(){
+//		volume = 0;
+//		volume2 = -80f; 
+//		while (volume > -78) {
+//			volume -= 1;
+//			if (volume2 < 0) {
+//				volume2 += 10;
+//			}
+//
+//			if (volume < -20) {
+//				volume = -80f;
+//			}
+//			masterMixer.SetFloat ("MusicLow", volume);
+//			masterMixer.SetFloat ("MusicHigh", volume2);
+//
+//
+//
+//			yield return new WaitForSeconds (0.05f);
+//		}
+//		masterMixer.SetFloat ("MusicLow", -80);
+//		masterMixer.SetFloat ("MusicHigh", 0f);
 
-			if (volume < -20) {
-				volume = -80f;
-			}
-			masterMixer.SetFloat ("MusicLow", volume);
-			masterMixer.SetFloat ("MusicHigh", volume2);
-			yield return new WaitForSeconds (0.05f);
-		}
-	}
+//	}
 
-	IEnumerator FadeToSuperModeFromMedium(){
-		volume = 0;
-		volume2 = -80f; 
-		while (volume > -78) {
-			volume -= 1;
-			if (volume2 < 0) {
-				volume2 += 10;
-			}
-
-			if (volume < -20) {
-				volume = -80f;
-			}
-			masterMixer.SetFloat ("MusicHigh", volume2);
-			yield return new WaitForSeconds (0.05f);
-		}
-	}
+//	IEnumerator FadeToSuperModeFromMedium(){
+//		volume = 0;
+//		volume2 = -80f; 
+//		while (volume > -78) {
+//			volume -= 1;
+//			if (volume2 < 0) {
+//				volume2 += 10;
+//			}
+//
+//			if (volume < -20) {
+//				volume = -80f;
+//			}
+//			masterMixer.SetFloat ("MusicHigh", volume2);
+//			yield return new WaitForSeconds (0.05f);
+//		}
+//		masterMixer.SetFloat ("MusicHigh", 0f);
+//	}
 
 	IEnumerator FadeOutSuperModeToLow(){
 		volume = 0;

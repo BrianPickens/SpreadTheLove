@@ -9,6 +9,7 @@ public class TutorialBase : MonoBehaviour {
 	public GameObject CandyHolder0;
 	public GameObject CandyHolder1;
 	public GameObject SpecialCollectables;
+	public GameObject Unicorn;
 
 	public Canvas tutorialCanvas;
 	public Text instructionsTxt;
@@ -49,6 +50,7 @@ public class TutorialBase : MonoBehaviour {
 	void Start () {
 		// stops the game at the beginning
 		Time.timeScale = 0;
+		Unicorn.GetComponent<UnicornMove> ().paused = true;
 
 		// call change screen to start
 		ChangeScreen ();
@@ -162,9 +164,11 @@ public class TutorialBase : MonoBehaviour {
 	private void switchOnCanvas(bool switchOn){
 		if (switchOn) {
 			Time.timeScale = 0;
+			Unicorn.GetComponent<UnicornMove> ().paused = true;
 			tutorialCanvas.enabled = true;
 		} else {
 			Time.timeScale = 1;
+			Unicorn.GetComponent<UnicornMove> ().paused = false;
 			tutorialCanvas.enabled = false;
 		}
 	}

@@ -17,6 +17,7 @@ public class NetworkScript : MonoBehaviour {
 	public GameObject[] CommentIcons;
 	public static bool[] complimentStates = new bool[4];
 	public GameObject[] ComplimentPopUps;
+	public GameObject[] OpenPresents;
 
 
 
@@ -138,6 +139,7 @@ public class NetworkScript : MonoBehaviour {
 			foreach(string s in www.responseHeaders.Keys){
 				Debug.Log(s);
 			}
+			UpdateCompliments();
 		}
 	}
 
@@ -173,7 +175,9 @@ public class NetworkScript : MonoBehaviour {
 	//turning off presents
 	public void Comment1Viewed(){
 		complimentStates [0] = false;
-		CommentIcons [0].GetComponent<Button> ().interactable = false;
+		//CommentIcons [0].GetComponent<Button> ().interactable = false;
+		CommentIcons [0].SetActive (false);
+		OpenPresents [0].SetActive (true);
 		ComplimentPopUps [0].SetActive (true);
 		ComplimentPopUps [0].GetComponent<PresentReaderScript> ().GeneratePresentVoice ();
 		activeCompliment--;
@@ -182,7 +186,9 @@ public class NetworkScript : MonoBehaviour {
 
 	public void Comment2Viewed(){
 		complimentStates [1] = false;
-		CommentIcons [1].GetComponent<Button> ().interactable = false;
+		//CommentIcons [1].GetComponent<Button> ().interactable = false;
+		CommentIcons [1].SetActive (false);
+		OpenPresents [1].SetActive (true);
 		ComplimentPopUps [1].SetActive (true);
 		ComplimentPopUps [1].GetComponent<PresentReaderScript> ().GeneratePresentVoice ();
 		activeCompliment--;
@@ -191,7 +197,9 @@ public class NetworkScript : MonoBehaviour {
 
 	public void Comment3Viewed(){
 		complimentStates [2] = false;
-		CommentIcons [2].GetComponent<Button> ().interactable = false;
+		//CommentIcons [2].GetComponent<Button> ().interactable = false;
+		CommentIcons [2].SetActive (false);
+		OpenPresents [2].SetActive (true);
 		ComplimentPopUps [2].SetActive (true);
 		ComplimentPopUps [2].GetComponent<PresentReaderScript> ().GeneratePresentVoice ();
 		activeCompliment--;
@@ -200,7 +208,9 @@ public class NetworkScript : MonoBehaviour {
 
 	public void Comment4Viewed(){
 		complimentStates [3] = false;
-		CommentIcons [3].GetComponent<Button> ().interactable = false;
+		//CommentIcons [3].GetComponent<Button> ().interactable = false;
+		CommentIcons [3].SetActive (false);
+		OpenPresents [3].SetActive (true);
 		ComplimentPopUps [3].SetActive (true);
 		ComplimentPopUps [3].GetComponent<PresentReaderScript> ().GeneratePresentVoice ();
 		activeCompliment--;

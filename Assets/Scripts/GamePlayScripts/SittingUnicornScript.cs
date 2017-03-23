@@ -37,17 +37,23 @@ public class SittingUnicornScript : MonoBehaviour {
 			switch (typeOfUnicorn) {
 			case 0:
 				Happy.SetActive (true);
-				GetComponent<AudioSource> ().PlayOneShot (HappyClip);
+				if (!SoundManager.AudioOff) {
+					GetComponent<AudioSource> ().PlayOneShot (HappyClip);
+				}
 				break;
 
 			case 1:
 				Beautiful.SetActive (true);
-				GetComponent<AudioSource> ().PlayOneShot (BeautifulClip);
+				if (!SoundManager.AudioOff) {
+					GetComponent<AudioSource> ().PlayOneShot (BeautifulClip);
+				}
 				break;
 
 			case 2:
 				Great.SetActive (true);
-				GetComponent<AudioSource> ().PlayOneShot (GreatClip);
+				if (!SoundManager.AudioOff) {
+					GetComponent<AudioSource> ().PlayOneShot (GreatClip);
+				}
 				break;
 
 			default:

@@ -157,8 +157,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cloudObjPool: {fileID: 0}
   numOfClouds: 4
-  minSpawnRange: 15.4
-  maxSpawnRange: 27.3
+  minSpawnRange: 10
+  maxSpawnRange: 19
   startPosX: -35.4
   maxXPos: 31.6
   minSpeed: 2
@@ -193,7 +193,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: ee225fec0e6eb224fac0851be90ca548, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

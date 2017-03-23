@@ -10,7 +10,7 @@ public class UnicornMove : MonoBehaviour {
 
 	private Transform _myTransform;
 	private Rigidbody2D _myRigidbody;
-	private Animator _myanim;
+	//private Animator _myanim;
 	private SpriteRenderer _mySprite;
 
 	public GameObject LoveSplode;
@@ -41,6 +41,7 @@ public class UnicornMove : MonoBehaviour {
 	private bool mediumMusicOn;
 	private int direction;
 
+	public bool paused;
 	public float speed;
 	public float baseSpeed;
 	public float superModeBaseSpeed;
@@ -100,7 +101,7 @@ public class UnicornMove : MonoBehaviour {
 		//grabbing transforma dn ridgidbody for movement
 		_myRigidbody = GetComponent<Rigidbody2D> ();
 		_myTransform = GetComponent<Transform> ();
-		_myanim = GetComponent<Animator> ();
+		//_myanim = GetComponent<Animator> ();
 		_mySprite = GetComponent<SpriteRenderer> ();
 
 	}
@@ -135,10 +136,10 @@ public class UnicornMove : MonoBehaviour {
 
 
 		//flip the character sprite back and forth depending on which way the phone is tilted
-		if (Input.acceleration.x < 0 && !facingLeft && !gameEnding) {
+		if (Input.acceleration.x < 0 && !facingLeft && !gameEnding && !paused) {
 			_mySprite.sprite = UnicornLeft;
 			Flip ();
-		} else if (Input.acceleration.x > 0 && facingLeft && !gameEnding) {
+		} else if (Input.acceleration.x > 0 && facingLeft && !gameEnding && !paused) {
 			_mySprite.sprite = UnicornRight;
 			Flip ();
 		}
@@ -179,7 +180,9 @@ public class UnicornMove : MonoBehaviour {
 		//if the player hits a candy, make sounds, make paricles, tell the other object what to do in its script, and calculate score
 		if (other.gameObject.tag == "Lollipop" && !stopInteraction) {
 			other.gameObject.GetComponent<LolliPopScript> ().UnicornHit ();
-			GetComponent<AudioSource> ().PlayOneShot (Poof);
+			if (!SoundManager.AudioOff) {
+				GetComponent<AudioSource> ().PlayOneShot (Poof);
+			}
 			//LoveMeter.GetComponent<LoveMeterFill> ().AddLove ();
 			Instantiate (LoveSplode, transform.position, Quaternion.Euler(new Vector3(180,0,0)));
 			CalculateScore (other.gameObject.GetComponent<LolliPopScript> ().identity);
@@ -219,7 +222,9 @@ public class UnicornMove : MonoBehaviour {
 	public void LoveMeterFull(){
 		Instantiate (HappySplode, new Vector2(gameObject.transform.position.x,gameObject.transform.position.y), Quaternion.identity, gameObject.transform);
 		HappySplode.SetActive (true);
-		GetComponent<AudioSource> ().PlayOneShot (Love);
+		if (!SoundManager.AudioOff) {
+			GetComponent<AudioSource> ().PlayOneShot (Love);
+		}
 		HappyZone.SetActive (true);
 		//Camera Shake!
 		//CameraShake.Shake( cameraShakeDuration, cameraShakeAmount);

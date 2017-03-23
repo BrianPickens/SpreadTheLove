@@ -5778,6 +5778,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 1000010951997416, guid: f455cb64efd0f5a4c82cf1de0cc92022, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f455cb64efd0f5a4c82cf1de0cc92022, type: 2}
   m_IsPrefabParent: 0
@@ -9102,7 +9106,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_RenderMode: 0
   m_SortMode: 0
   m_MinParticleSize: 0
@@ -9175,7 +9179,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 2
-  randomSeed: -53517735
+  randomSeed: 33847741
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -13620,9 +13624,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 75, y: 0}
+  m_AnchoredPosition: {x: 87.5, y: 0}
   m_SizeDelta: {x: 175, y: 1155}
-  m_Pivot: {x: 0, y: 0.5}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1516876540
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18072,6 +18076,7 @@ MonoBehaviour:
   DonutMultiplier: {fileID: 21300000, guid: 9a7339dbe125ca14b8ce4d02dd8f91dc, type: 3}
   UnicornLeft: {fileID: 21300000, guid: f73f4c3ac9392784e9f04dcbeefab958, type: 3}
   UnicornRight: {fileID: 21300000, guid: 511b4fecf5a790541a05b98dae96c49f, type: 3}
+  paused: 0
   speed: 4
   baseSpeed: 4
   superModeBaseSpeed: 6
@@ -18506,6 +18511,7 @@ GameObject:
   - component: {fileID: 2036857275}
   - component: {fileID: 2036857276}
   - component: {fileID: 2036857278}
+  - component: {fileID: 2036857277}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -18626,12 +18632,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cloudObjPool: {fileID: 557662100}
   numOfClouds: 4
-  minSpawnRange: 15.4
-  maxSpawnRange: 24
+  minSpawnRange: 10
+  maxSpawnRange: 19
   startPosX: -35.4
   maxXPos: 31.6
   minSpeed: 2
   maxSpeed: 4
+--- !u!114 &2036857277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2036857268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6878d1e5d1abdf4cba417a559197984, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2036857278
 MonoBehaviour:
   m_ObjectHideFlags: 0
