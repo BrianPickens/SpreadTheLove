@@ -13,6 +13,7 @@ public class SoundManager : MonoBehaviour {
 	AudioSource GameMusicLow;
 	AudioSource GameMusicMedium;
 	AudioSource GameMusicHigh;
+	AudioSource ButtonEffects;
 
 	public static bool AudioOff;
 	public static bool SoundEffectsOff;
@@ -20,6 +21,8 @@ public class SoundManager : MonoBehaviour {
 	public AudioClip IntroStart;
 	public AudioClip LollipopMusic;
 	public AudioClip ShopMusic;
+	public AudioClip ClickSound;
+	public AudioClip PoofSound;
 
 	public AudioMixer masterMixer;
 
@@ -58,6 +61,7 @@ public class SoundManager : MonoBehaviour {
 		GameMusicLow = audios [4];
 		GameMusicMedium = audios [5];
 		GameMusicHigh = audios [6];
+		ButtonEffects = audios [7];
 
 	}
 	
@@ -65,6 +69,21 @@ public class SoundManager : MonoBehaviour {
 	void Update () {
 		
 	}
+
+	public void PlayClickSound(){
+		if (!AudioOff) {
+			ButtonEffects.PlayOneShot (ClickSound);
+		}
+	}
+
+	public void PlayPoofSound(){
+		if (!AudioOff) {
+			ButtonEffects.PlayOneShot (PoofSound);
+		}
+	}
+
+
+	//huge list of transitions below
 
 	public void IntroMusicPlay(){
 		if (!AudioOff) {

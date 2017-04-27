@@ -24,6 +24,7 @@ public class EnableParticleEffect : MonoBehaviour {
 	void OnTriggerEnter2D (Collider2D other){
 
 		if (other.gameObject.tag == "Cloud") {
+			GameObject.FindGameObjectWithTag ("SoundManager").GetComponent<SoundManager> ().PlayPoofSound ();
 //			float move = Input.acceleration.x;
 //			_myRigidbody.velocity = new Vector2 (move * unicornMove.turnSpeed, unicornMove.speed);
 //			particles.Emit(emitNumParticles);
@@ -32,6 +33,7 @@ public class EnableParticleEffect : MonoBehaviour {
 		}
 		//if you hit the top of the screen, enable screen shake
 		if (other.gameObject.tag == "TopEdge") {
+			GameObject.FindGameObjectWithTag ("SoundManager").GetComponent<SoundManager> ().PlayPoofSound ();
 			particles.Emit(emitNumParticles);
 			// Also Shake Camera
 			//CameraShake.Shake( cameraShakeDuration, cameraShakeAmount);
@@ -39,11 +41,13 @@ public class EnableParticleEffect : MonoBehaviour {
 
 		//if you hit the bottom of the screen, enable screen shake
 		if (other.gameObject.tag == "BottomEdge") {
+			GameObject.FindGameObjectWithTag ("SoundManager").GetComponent<SoundManager> ().PlayPoofSound ();
 			particles.Emit(emitNumParticles);
 			// Also Shake Camera
 			//CameraShake.Shake( cameraShakeDuration, cameraShakeAmount);
 		}
 		if (other.gameObject.tag == "Edge") {
+			GameObject.FindGameObjectWithTag ("SoundManager").GetComponent<SoundManager> ().PlayPoofSound ();
 			particles.Emit(emitNumParticles);
 			// Also Shake Camera
 			//CameraShake.Shake( cameraShakeDuration, cameraShakeAmount);

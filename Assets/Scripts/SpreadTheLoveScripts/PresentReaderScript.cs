@@ -1,11 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PresentReaderScript : MonoBehaviour {
 
 	public AudioClip[] Phrases;
 	public Sprite[] Sprites;
+	public float[] ReadTime;
+
 
 	// Use this for initialization
 	void Start () {
@@ -18,16 +21,16 @@ public class PresentReaderScript : MonoBehaviour {
 	}
 
 	public void GeneratePresentVoice(){
-		int complimentChoice = Random.Range (0, 3);
+		int complimentChoice = Random.Range (0, 19);
 		if (!SoundManager.AudioOff) {
 			GetComponent<AudioSource> ().PlayOneShot (Phrases [complimentChoice]);
 		}
 		GetComponent<SpriteRenderer> ().sprite = Sprites [complimentChoice];
-		StartCoroutine (TurnOffPopUp ());
+		StartCoroutine (TurnOffPopUp (complimentChoice));
 	}
 
-	IEnumerator TurnOffPopUp(){
-		yield return new WaitForSeconds(2f);
+	IEnumerator TurnOffPopUp(int choice){
+		yield return new WaitForSeconds(ReadTime [choice]);
 		this.transform.parent.gameObject.SetActive (false);
 		this.gameObject.SetActive (false);
 	}

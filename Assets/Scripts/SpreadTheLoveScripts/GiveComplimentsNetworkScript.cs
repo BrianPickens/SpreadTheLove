@@ -30,6 +30,7 @@ public class GiveComplimentsNetworkScript : MonoBehaviour {
 	//end give presents with old currency
 		
 	public void giveCompliment(){
+		GameObject.FindGameObjectWithTag ("SoundManager").GetComponent<SoundManager> ().PlayClickSound ();
 		string url = "http://brianpickens.pythonanywhere.com/giveCompliment";
 		WWW www = new WWW(url);
 		StartCoroutine(WaitForRequest(www));

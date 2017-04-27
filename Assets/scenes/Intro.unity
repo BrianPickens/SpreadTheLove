@@ -264,7 +264,7 @@ ParticleSystemRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 0
   m_Materials:
-  - {fileID: 2100000, guid: 41ac68b9de8d5434884c6b6e4d68806c, type: 2}
+  - {fileID: 2100000, guid: d3706fe1a410bf14d81ee1c18e894f70, type: 2}
   - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -5715,6 +5715,7 @@ GameObject:
   - component: {fileID: 484609976}
   - component: {fileID: 484609975}
   - component: {fileID: 484609974}
+  - component: {fileID: 484609977}
   m_Layer: 0
   m_Name: SoundManager
   m_TagString: SoundManager
@@ -5737,6 +5738,8 @@ MonoBehaviour:
   IntroStart: {fileID: 8300000, guid: 02e9bd1f7c4375540af828e17fe63691, type: 3}
   LollipopMusic: {fileID: 8300000, guid: c59094f641823da48bc0dbf2f312ec12, type: 3}
   ShopMusic: {fileID: 8300000, guid: 880738f623c4d4945a69c4b4e56e07cc, type: 3}
+  ClickSound: {fileID: 8300000, guid: 480b4204dae9dbd4cbde0d25f2a70f6b, type: 3}
+  PoofSound: {fileID: 8300000, guid: 32219417dc375ac448dbd045d3a9abf8, type: 3}
   masterMixer: {fileID: 24100000, guid: 9e8985077d54dd14bb36494a8fcacd1c, type: 2}
 --- !u!4 &484609969
 Transform:
@@ -6252,6 +6255,86 @@ AudioSource:
   m_Volume: 1
   m_Pitch: 1
   Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+--- !u!82 &484609977
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 484609967}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 0.5
+  m_Pitch: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -7124,7 +7207,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 2b3eae867bf72e04fb71fb9e14c8f3ff, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d8cc4bc8e396fdc48b3992e5fe156353, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -7136,7 +7219,7 @@ Transform:
   m_GameObject: {fileID: 932423770}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 12.83, y: 0.5899999, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.20911217, y: 0.2091122, z: 0.2091122}
   m_Children:
   - {fileID: 237527412}
   - {fileID: 1745248521}
@@ -7154,8 +7237,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36a3f6b135409164c8f8f177efb784ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CloudHappy: {fileID: 21300000, guid: ee225fec0e6eb224fac0851be90ca548, type: 3}
-  CloudSad: {fileID: 21300000, guid: 2b3eae867bf72e04fb71fb9e14c8f3ff, type: 3}
+  CloudHappy: {fileID: 21300000, guid: d095a56d7321cc1409bb57ee6fe668dc, type: 3}
+  CloudSad: {fileID: 21300000, guid: d8cc4bc8e396fdc48b3992e5fe156353, type: 3}
 --- !u!95 &932423774
 Animator:
   serializedVersion: 3

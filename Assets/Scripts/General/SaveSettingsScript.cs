@@ -36,6 +36,10 @@ public class SaveSettingsScript : MonoBehaviour {
 //		if (Input.GetKeyDown(KeyCode.Space)) {
 //			Debug.Log ("Save Deleted");
 //			PlayerPrefs.DeleteAll ();
+//			PlayerPrefs.SetInt ("MusicOff", (0));
+//			PlayerPrefs.SetInt ("ActiveCompliments", (0));
+//			PlayerPrefs.SetInt ("UnicornSmiles", (0));
+//			PlayerPrefs.SetInt ("TutorialOff", (0));
 //			Debug.Log ("Save Deleted");
 //		}
 

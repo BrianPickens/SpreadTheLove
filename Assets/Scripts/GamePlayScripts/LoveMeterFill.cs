@@ -56,7 +56,7 @@ public class LoveMeterFill : MonoBehaviour {
 	}
 
 	void DrainHappyMeter(){
-		GetComponent<Image> ().fillAmount -= 0.01f;
+		GetComponent<Image> ().fillAmount -= 0.007f;
 		if (GetComponent<Image> ().fillAmount <= 0f) {
 			CancelInvoke ();
 			GetComponent<Image> ().fillAmount = 0f;

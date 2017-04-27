@@ -34,6 +34,8 @@ public class IncreaseHappyScript : MonoBehaviour {
 		if (UnicornMove.superMode && !superModeActive && itemState == 1) {
 			switch (itemType) {
 			case 0:
+				//myAnim.speed = 0.35f;
+				//myAnim.SetBool ("Glimmer", true);
 				GetComponent<SpriteRenderer> ().sprite = Highlighted1;
 				break;
 
@@ -41,11 +43,14 @@ public class IncreaseHappyScript : MonoBehaviour {
 				GetComponent<SpriteRenderer> ().sprite = Highlighted2;
 				break;
 			}
+
 			ParticleSpray.SetActive (true);
 			superModeActive = true;
 		} else if (!UnicornMove.superMode && superModeActive && itemState == 1) {
 			switch (itemType) {
 			case 0:
+				//myAnim.speed = 1f;
+				//myAnim.SetBool ("Glimmer", false);
 				GetComponent<SpriteRenderer> ().sprite = GreySprite1;
 				break;
 
@@ -54,6 +59,7 @@ public class IncreaseHappyScript : MonoBehaviour {
 				break;
 
 			}
+
 			ParticleSpray.SetActive (false);
 			superModeActive = false;
 		}
@@ -70,7 +76,7 @@ public class IncreaseHappyScript : MonoBehaviour {
 				GetComponent<SpriteRenderer> ().sprite = GreySprite1;
 					break;
 
-				case 1:
+			case 1:
 				GetComponent<SpriteRenderer> ().sprite = GreySprite2;
 					break;
 

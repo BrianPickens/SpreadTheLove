@@ -26,6 +26,7 @@ public class UnicornMove : MonoBehaviour {
 	public GameObject EndScreen;
 	public GameObject EndScoreDisplay;
 	public GameObject MultiplierPopUpDisplay;
+	public GameObject TutorialEndDisplay;
 
 	public Sprite LolliMultiplier;
 	public Sprite WaffleMultiplier;
@@ -39,7 +40,9 @@ public class UnicornMove : MonoBehaviour {
 	private bool stopInteraction;
 	private bool facingLeft;
 	private bool mediumMusicOn;
+	private bool tutorialEndDisplayed;
 	private int direction;
+	private bool endedGame;
 
 	public bool paused;
 	public float speed;
@@ -98,6 +101,10 @@ public class UnicornMove : MonoBehaviour {
 		//reset direction be traveled if player resets
 		travelingUp = true;
 
+		//update score
+		score = CurrencyManager.unicornSmiles;
+		ScoreDisplay.GetComponent<Text> ().text = "" + score;
+
 		//grabbing transforma dn ridgidbody for movement
 		_myRigidbody = GetComponent<Rigidbody2D> ();
 		_myTransform = GetComponent<Transform> ();
@@ -123,7 +130,10 @@ public class UnicornMove : MonoBehaviour {
 			}
 		} else {
 			//end the game
-			EndGame ();
+			if (!endedGame) {
+				EndGame ();
+				endedGame = true;
+			}
 		}
 
 		//grab the input from the connected iphone
@@ -200,9 +210,19 @@ public class UnicornMove : MonoBehaviour {
 			Camera.GetComponent<CameraFollow> ().BottomCamera ();
 		}
 
+		if (other.gameObject.tag == "Cloud") {
+			if (travelingUp) {
+				travelingUp = false;
+				Camera.GetComponent<CameraFollow> ().TopCamera ();
+			} else if (!travelingUp) {
+				travelingUp = true;
+				Camera.GetComponent<CameraFollow> ().BottomCamera ();
+			}
+		}
+
 		//if you hit a unicorn, give score, tell the unicorn what to do in its script, and add love to the love meter.
 		if (other.gameObject.tag == "Unicorn") {
-			CurrencyManager.unicornSmiles += 500;
+			UpdateScore (100);
 			other.gameObject.GetComponent<SittingUnicornScript> ().UnicornChange ();
 			LoveMeter.GetComponent<LoveMeterFill> ().AddUnicornLove ();
 		}
@@ -285,6 +305,11 @@ public class UnicornMove : MonoBehaviour {
 		ScoreDisplay.GetComponent<Text> ().text = "" + score;
 	}
 
+	public void UpdateScore(int points){
+		score = score + (points * multiplier);
+		ScoreDisplay.GetComponent<Text> ().text = "" + score;
+	}
+
 	//switch the target candy image
 	public void UpdateMultiplierImage(){
 		switch (currentIdentity) {
@@ -309,7 +334,7 @@ public class UnicornMove : MonoBehaviour {
 		float Max = happyObjectMax;
 		float happyObjectDifference = Count/Max;
 		TimeOfDay.GetComponent<Image> ().color = new Color (TimeOfDay.GetComponent<Image> ().color.r, TimeOfDay.GetComponent<Image> ().color.g, TimeOfDay.GetComponent<Image> ().color.b, happyObjectDifference);
-		GetComponent<ChangeCameraSaturation> ().camSatEnd = happyObjectDifference;
+		//GetComponent<ChangeCameraSaturation> ().camSatEnd = happyObjectDifference;
 	}
 
 	//end the game, stop interaction, stop movement, save the game, turn on end screen
@@ -317,15 +342,22 @@ public class UnicornMove : MonoBehaviour {
 		speed = 0f;
 		turnSpeed = 0f;
 		stopInteraction = true;
-		EndScoreDisplay.GetComponent<Text> ().text = "Score: " + score;
-		CurrencyManager.unicornSmiles += score;
+		EndScoreDisplay.GetComponent<Text> ().text = "" + score;
+		CurrencyManager.unicornSmiles = score;
 		GameObject.FindGameObjectWithTag ("SaveSettings").GetComponent<SaveSettingsScript> ().SaveSettings ();
 		EndScreen.SetActive (true);
+		if (TutorialEndDisplay != null) {
+			if (!tutorialEndDisplayed) {
+				TutorialEndDisplay.SetActive (true);
+				tutorialEndDisplayed = true;
+			}
+		}
 	}
 
 	//reset the game
 	public void RestartGame(){
 		EndSuperMode ();
+		GameObject.FindGameObjectWithTag ("SoundManager").GetComponent<SoundManager> ().PlayClickSound ();
 		GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager> ().RestartGameMusic ();
 		SceneManager.LoadScene ("prototype5");
 	}
@@ -333,6 +365,7 @@ public class UnicornMove : MonoBehaviour {
 	//go to menu
 	public void GameToMenu(){
 		EndSuperMode ();
+		GameObject.FindGameObjectWithTag ("SoundManager").GetComponent<SoundManager> ().PlayClickSound ();
 		GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager> ().GameToMenu ();
 		SceneManager.LoadScene ("Menu");
 	}
@@ -340,6 +373,7 @@ public class UnicornMove : MonoBehaviour {
 	//go to Spread the Love menu
 	public void GameToSpreadLove(){
 		EndSuperMode ();
+		GameObject.FindGameObjectWithTag ("SoundManager").GetComponent<SoundManager> ().PlayClickSound ();
 		GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager> ().GameToShop ();
 		SceneManager.LoadScene ("SpreadTheLove");
 	}

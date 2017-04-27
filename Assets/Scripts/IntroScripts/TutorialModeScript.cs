@@ -31,7 +31,7 @@ public class TutorialModeScript : MonoBehaviour {
 			tutorialOff = true;
 			TutorialSwitch.GetComponent<Image> ().sprite = ToggleOff;
 		}
-
+		GameObject.FindGameObjectWithTag ("SoundManager").GetComponent<SoundManager> ().PlayClickSound ();
 		GameObject.FindGameObjectWithTag ("SaveSettings").GetComponent<SaveSettingsScript> ().SaveSettings ();
 	}
 

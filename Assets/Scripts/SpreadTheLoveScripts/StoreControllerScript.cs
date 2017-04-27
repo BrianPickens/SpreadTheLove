@@ -8,6 +8,10 @@ public class StoreControllerScript : MonoBehaviour {
 	public Text UnicornCurrencyDisplay;
 	public GameObject[] ComplimentPages;
 	public GameObject ComplimentConfirmation;
+	public Image LeftArrow;
+	public Image RightArrow;
+	public Sprite YellowArrow;
+	public Sprite BlueArrow;
 
 	public int complimentPageMax;
 	private int complimentPageMin;
@@ -20,9 +24,13 @@ public class StoreControllerScript : MonoBehaviour {
 		currentComplimentPage = 0;
 		ComplimentPages [currentComplimentPage].SetActive (true);
 		UpdateCurrency ();
+		UpdateArrows ();
 	}
 
 	void Update () {
+
+
+
 
 	}
 
@@ -32,19 +40,42 @@ public class StoreControllerScript : MonoBehaviour {
 
 	public void ComplimentStoreRight(){
 		if (currentComplimentPage < complimentPageMax-1) {
+			GameObject.FindGameObjectWithTag ("SoundManager").GetComponent<SoundManager> ().PlayClickSound ();
 			ComplimentPages [currentComplimentPage].SetActive (false);
 			currentComplimentPage++;
 			ComplimentPages [currentComplimentPage].SetActive (true);
+			UpdateArrows ();
 		}
 
 	}
 
 	public void ComplimentStoreLeft(){
 		if (currentComplimentPage > complimentPageMin) {
+			GameObject.FindGameObjectWithTag ("SoundManager").GetComponent<SoundManager> ().PlayClickSound ();
 			ComplimentPages [currentComplimentPage].SetActive (false);
 			currentComplimentPage--;
 			ComplimentPages [currentComplimentPage].SetActive (true);
+			UpdateArrows ();
 		}
+	}
+
+	public void UpdateArrows(){
+		if (currentComplimentPage == complimentPageMax-1) {
+			//Debug.Log ("MAX");
+			RightArrow.GetComponent<Image> ().sprite = BlueArrow;
+		} else {
+			RightArrow.GetComponent<Image> ().sprite = YellowArrow;
+		//	Debug.Log ("beign Called");
+		}
+		if (currentComplimentPage == 0) {
+			LeftArrow.GetComponent<Image> ().sprite = BlueArrow;
+		//	Debug.Log ("MIN");
+		} else {
+			LeftArrow.GetComponent<Image> ().sprite = YellowArrow;
+		//	Debug.Log ("beign Called");
+		}
+
+
 	}
 
 	public void YoureGreat(){
@@ -75,6 +106,7 @@ public class StoreControllerScript : MonoBehaviour {
 	}
 
 	public void CloseComplimentConfirmation(){
+		GameObject.FindGameObjectWithTag ("SoundManager").GetComponent<SoundManager> ().PlayClickSound ();
 		ComplimentConfirmation.SetActive (false);
 	}
 
