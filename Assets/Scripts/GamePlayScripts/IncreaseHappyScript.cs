@@ -91,7 +91,9 @@ public class IncreaseHappyScript : MonoBehaviour {
 
 		case 2:
 			Instantiate (HappyParticleEffect, new Vector2 (gameObject.transform.position.x, gameObject.transform.position.y), Quaternion.identity, gameObject.transform);
-			GetComponent<AudioSource> ().PlayOneShot (Poof);
+			if (!SoundManager.AudioOff) {
+				GetComponent<AudioSource> ().PlayOneShot (Poof);
+			}
 			myAnim.SetBool ("IsHappy", true);
 				switch (itemType) {
 				case 0:

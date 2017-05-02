@@ -5738,8 +5738,10 @@ MonoBehaviour:
   IntroStart: {fileID: 8300000, guid: 02e9bd1f7c4375540af828e17fe63691, type: 3}
   LollipopMusic: {fileID: 8300000, guid: c59094f641823da48bc0dbf2f312ec12, type: 3}
   ShopMusic: {fileID: 8300000, guid: 880738f623c4d4945a69c4b4e56e07cc, type: 3}
-  ClickSound: {fileID: 8300000, guid: 480b4204dae9dbd4cbde0d25f2a70f6b, type: 3}
-  PoofSound: {fileID: 8300000, guid: 32219417dc375ac448dbd045d3a9abf8, type: 3}
+  ClickSound: {fileID: 8300000, guid: 5156c32adecec984db866d87b80269d8, type: 3}
+  PoofSound: {fileID: 8300000, guid: 85bd7ba1d33294b4486282950cbbf4a9, type: 3}
+  BackwardClickSound: {fileID: 8300000, guid: 7b82beae279077a47b81c9278b5057e8, type: 3}
+  BubbleSound: {fileID: 8300000, guid: 495439a1882efc043bb120a11b5364c9, type: 3}
   masterMixer: {fileID: 24100000, guid: 9e8985077d54dd14bb36494a8fcacd1c, type: 2}
 --- !u!4 &484609969
 Transform:

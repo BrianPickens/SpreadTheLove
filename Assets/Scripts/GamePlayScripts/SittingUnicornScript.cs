@@ -32,7 +32,9 @@ public class SittingUnicornScript : MonoBehaviour {
 		if (!triggered) {
 			GetComponent<SpriteRenderer> ().sprite = HappyUnicorn;
 			Phrases [typeOfUnicorn].SetActive (true);
-			GetComponent<AudioSource> ().PlayOneShot (PhraseClips [typeOfUnicorn]);
+			if (!SoundManager.AudioOff) {
+				GetComponent<AudioSource> ().PlayOneShot (PhraseClips [typeOfUnicorn]);
+			}
 //			switch (typeOfUnicorn) {
 //			case 0:
 //				Happy.SetActive (true);

@@ -102,7 +102,8 @@ public class UnicornMove : MonoBehaviour {
 		travelingUp = true;
 
 		//update score
-		score = CurrencyManager.unicornSmiles;
+		//score = CurrencyManager.unicornSmiles;
+		score = 0;
 		ScoreDisplay.GetComponent<Text> ().text = "" + score;
 
 		//grabbing transforma dn ridgidbody for movement
@@ -343,7 +344,8 @@ public class UnicornMove : MonoBehaviour {
 		turnSpeed = 0f;
 		stopInteraction = true;
 		EndScoreDisplay.GetComponent<Text> ().text = "" + score;
-		CurrencyManager.unicornSmiles = score;
+		//CurrencyManager.unicornSmiles = score;
+		CurrencyManager.unicornSmiles += score;
 		GameObject.FindGameObjectWithTag ("SaveSettings").GetComponent<SaveSettingsScript> ().SaveSettings ();
 		EndScreen.SetActive (true);
 		if (TutorialEndDisplay != null) {

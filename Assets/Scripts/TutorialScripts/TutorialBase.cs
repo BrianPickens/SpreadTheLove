@@ -121,7 +121,9 @@ public class TutorialBase : MonoBehaviour {
 		if (Input.touchCount == 1) {    
 			// touch on screen
 			if (Input.GetTouch (0).phase == TouchPhase.Began) {
-				GameObject.FindGameObjectWithTag ("SoundManager").GetComponent<SoundManager> ().PlayClickSound ();
+				if (!SoundManager.AudioOff) {
+					GameObject.FindGameObjectWithTag ("SoundManager").GetComponent<SoundManager> ().PlayClickSound ();
+				}
 				return true;
 			}
 		}

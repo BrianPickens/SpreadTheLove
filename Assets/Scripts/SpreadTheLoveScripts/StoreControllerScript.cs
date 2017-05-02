@@ -79,21 +79,22 @@ public class StoreControllerScript : MonoBehaviour {
 	}
 
 	public void YoureGreat(){
-
+		GameObject.FindGameObjectWithTag ("SoundManager").GetComponent<SoundManager> ().PlayBubbleButtonSound ();
 		smilesCost = 0;
 	}
 
 	public void YoureBeautiful(){
-
+		GameObject.FindGameObjectWithTag ("SoundManager").GetComponent<SoundManager> ().PlayBubbleButtonSound ();
 		smilesCost = 0;
 	}
 
 	public void YouMakeMeHappy(){
-
+		GameObject.FindGameObjectWithTag ("SoundManager").GetComponent<SoundManager> ().PlayBubbleButtonSound ();
 		smilesCost = 0;
 	}
 
 	public void WhoseCool(){
+		GameObject.FindGameObjectWithTag ("SoundManager").GetComponent<SoundManager> ().PlayBubbleButtonSound ();
 		smilesCost = 10000;
 	}
 

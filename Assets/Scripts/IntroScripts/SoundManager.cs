@@ -23,6 +23,8 @@ public class SoundManager : MonoBehaviour {
 	public AudioClip ShopMusic;
 	public AudioClip ClickSound;
 	public AudioClip PoofSound;
+	public AudioClip BackwardClickSound;
+	public AudioClip BubbleSound;
 
 	public AudioMixer masterMixer;
 
@@ -82,6 +84,17 @@ public class SoundManager : MonoBehaviour {
 		}
 	}
 
+	public void PlayBackwardClickSound(){
+		if (!AudioOff) {
+			ButtonEffects.PlayOneShot (BackwardClickSound);
+		}
+	}
+
+	public void PlayBubbleButtonSound(){
+		if (!AudioOff) {
+			ButtonEffects.PlayOneShot (BubbleSound);
+		}
+	}
 
 	//huge list of transitions below
 
@@ -100,6 +113,12 @@ public class SoundManager : MonoBehaviour {
 		} else {
 			masterMixer.SetFloat ("MasterVolume", 80f);
 		}
+		RampMusicSource.Stop ();
+		LollipopLowSource.Stop ();
+		ShopMusicSource.Stop ();
+		GameMusicLow.Stop ();
+		GameMusicMedium.Stop ();
+		GameMusicHigh.Stop ();
 		TitleMusicSource.Play ();
 	}
 
@@ -108,6 +127,7 @@ public class SoundManager : MonoBehaviour {
 			StartCoroutine (FadeMenuToShop ());
 		} else {
 			masterMixer.SetFloat ("MasterVolume", -80f);
+
 		}
 		ShopMusicSource.Play ();
 	}

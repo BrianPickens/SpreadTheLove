@@ -16,7 +16,7 @@ public class SpreadTheLoveNavigation : MonoBehaviour {
 	}
 
 	public void SpreadToMenu(){
-		GameObject.FindGameObjectWithTag ("SoundManager").GetComponent<SoundManager> ().PlayClickSound ();
+		GameObject.FindGameObjectWithTag ("SoundManager").GetComponent<SoundManager> ().PlayBackwardClickSound ();
 		GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager> ().ShopToMenu ();
 		SceneManager.LoadScene ("Menu");
 	}
