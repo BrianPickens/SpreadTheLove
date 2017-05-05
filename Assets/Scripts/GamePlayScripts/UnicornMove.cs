@@ -345,7 +345,7 @@ public class UnicornMove : MonoBehaviour {
 		speed = 0f;
 		turnSpeed = 0f;
 		stopInteraction = true;
-		EndScoreDisplay.GetComponent<Text> ().text = "" + score;
+		EndScoreDisplay.GetComponent<Text> ().text = "" + (CurrencyManager.unicornSmiles + score);
 		//CurrencyManager.unicornSmiles = score;
 		CurrencyManager.unicornSmiles += score;
 		GameObject.FindGameObjectWithTag ("SaveSettings").GetComponent<SaveSettingsScript> ().SaveSettings ();

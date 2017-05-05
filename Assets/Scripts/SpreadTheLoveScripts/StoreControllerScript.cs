@@ -80,57 +80,57 @@ public class StoreControllerScript : MonoBehaviour {
 
 	public void YoureGreat(){
 		GameObject.FindGameObjectWithTag ("SoundManager").GetComponent<SoundManager> ().PlayBubbleButtonSound ();
-		smilesCost = 0;
+		smilesCost = 1000;
 	}
 
 	public void YoureBeautiful(){
 		GameObject.FindGameObjectWithTag ("SoundManager").GetComponent<SoundManager> ().PlayBubbleButtonSound ();
-		smilesCost = 0;
+		smilesCost = 1000;
 	}
 
 	public void YouMakeMeHappy(){
 		GameObject.FindGameObjectWithTag ("SoundManager").GetComponent<SoundManager> ().PlayBubbleButtonSound ();
-		smilesCost = 0;
+		smilesCost = 1000;
 	}
 
 	public void WhoseCool(){
 		GameObject.FindGameObjectWithTag ("SoundManager").GetComponent<SoundManager> ().PlayBubbleButtonSound ();
-		smilesCost = 10000;
+		smilesCost = 1000;
 	}
 
 	public void YourSmileIsContagious(){
 		GameObject.FindGameObjectWithTag ("SoundManager").GetComponent<SoundManager> ().PlayBubbleButtonSound ();
-		smilesCost = 10000;
+		smilesCost = 2500;
 	}
 
 	public void YouLookGreatToday(){
 		GameObject.FindGameObjectWithTag ("SoundManager").GetComponent<SoundManager> ().PlayBubbleButtonSound ();
-		smilesCost = 10000;
+		smilesCost = 2500;
 	}
 
 	public void NiceShirt(){
 		GameObject.FindGameObjectWithTag ("SoundManager").GetComponent<SoundManager> ().PlayBubbleButtonSound ();
-		smilesCost = 10000;
+		smilesCost = 2500;
 	}
 
 	public void ILikeYourStyle(){
 		GameObject.FindGameObjectWithTag ("SoundManager").GetComponent<SoundManager> ().PlayBubbleButtonSound ();
-		smilesCost = 10000;
+		smilesCost = 2500;
 	}
 
 	public void YouMakeEverythingBetter(){
 		GameObject.FindGameObjectWithTag ("SoundManager").GetComponent<SoundManager> ().PlayBubbleButtonSound ();
-		smilesCost = 10000;
+		smilesCost = 5000;
 	}
 
 	public void YoureWonderful(){
 		GameObject.FindGameObjectWithTag ("SoundManager").GetComponent<SoundManager> ().PlayBubbleButtonSound ();
-		smilesCost = 10000;
+		smilesCost = 5000;
 	}
 
 	public void YoureMoreFunThanBubbleWrap(){
 		GameObject.FindGameObjectWithTag ("SoundManager").GetComponent<SoundManager> ().PlayBubbleButtonSound ();
-		smilesCost = 10000;
+		smilesCost = 25000;
 	}
 
 	public void NiceSocks(){
@@ -140,7 +140,7 @@ public class StoreControllerScript : MonoBehaviour {
 
 	public void YoureGroovy(){
 		GameObject.FindGameObjectWithTag ("SoundManager").GetComponent<SoundManager> ().PlayBubbleButtonSound ();
-		smilesCost = 10000;
+		smilesCost = 5000;
 	}
 
 	public void LoveLove(){
@@ -150,7 +150,7 @@ public class StoreControllerScript : MonoBehaviour {
 
 	public void YoureAsFunAsChocolate(){
 		GameObject.FindGameObjectWithTag ("SoundManager").GetComponent<SoundManager> ().PlayBubbleButtonSound ();
-		smilesCost = 10000;
+		smilesCost = 25000;
 	}
 
 	public void OnAScaleOfTen(){
@@ -165,7 +165,7 @@ public class StoreControllerScript : MonoBehaviour {
 
 	public void YouWokeUpLikeThis(){
 		GameObject.FindGameObjectWithTag ("SoundManager").GetComponent<SoundManager> ().PlayBubbleButtonSound ();
-		smilesCost = 10000;
+		smilesCost = 25000;
 	}
 
 	public void ImAlwaysHappyTo(){
@@ -175,7 +175,7 @@ public class StoreControllerScript : MonoBehaviour {
 
 	public void ILikeYourFace(){
 		GameObject.FindGameObjectWithTag ("SoundManager").GetComponent<SoundManager> ().PlayBubbleButtonSound ();
-		smilesCost = 10000;
+		smilesCost = 25000;
 	}
 
 	public void ChargeUnicornSmiles(){

@@ -40,7 +40,7 @@ public class ForeGroundObjectPlacer : MonoBehaviour {
 
 		i = 0;
 		while (i < 5) {
-			int objectNumber = Random.Range (0, 8);
+			int objectNumber = Random.Range (0, 7);
 			if (!Flowers [objectNumber].GetComponent<ForeGroundStateScript> ().isActive) {
 				Flowers [objectNumber].SetActive (true);
 				Flowers [objectNumber].GetComponent<ForeGroundStateScript> ().isActive = true;
