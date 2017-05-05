@@ -26,7 +26,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1000012061086928
 GameObject:
   m_ObjectHideFlags: 0
@@ -71,7 +71,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010211472206}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.9, y: 3.237941, z: -9.174094}
+  m_LocalPosition: {x: -21.956593, y: -13.924148, z: 0}
   m_LocalScale: {x: 0.75, y: 0.75, z: 1}
   m_Children:
   - {fileID: 4000013622791654}
@@ -209,7 +209,7 @@ Animator:
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 0ba4264c6f71f184fa5750ffce7424b4, type: 2}
-  m_CullingMode: 0
+  m_CullingMode: 2
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
@@ -239,14 +239,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7ad3553325ca4044b6b1c277eb75f7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GreySprite1: {fileID: 21300000, guid: 890d5ac7cfa4ce641bcbf3bf4b1837a5, type: 3}
-  GreySprite2: {fileID: 21300000, guid: fbea262f1c91aac4db3eb7aa28be13ff, type: 3}
-  GreySprite3: {fileID: 21300000, guid: 890d5ac7cfa4ce641bcbf3bf4b1837a5, type: 3}
-  GoodSprite1: {fileID: 21300000, guid: ad55b4369f56192479d675949e2fe11d, type: 3}
-  GoodSprite2: {fileID: 21300000, guid: fafad571903663541b5c017e61561567, type: 3}
-  GoodSprite3: {fileID: 21300000, guid: ad55b4369f56192479d675949e2fe11d, type: 3}
-  Highlighted1: {fileID: 21300000, guid: bd405dd7eb2b01b4fb24aa65318ba91e, type: 3}
-  Highlighted2: {fileID: 21300000, guid: 567a205ae9a900a44a551750d1336ae2, type: 3}
+  GreySprite1: {fileID: 21300000, guid: dfc5c8b173af0384ab9810be9531efc3, type: 3}
+  GreySprite2: {fileID: 21300000, guid: 0fdfff48a8280be4280978f37d39d481, type: 3}
+  GreySprite3: {fileID: 21300000, guid: dfc5c8b173af0384ab9810be9531efc3, type: 3}
+  GoodSprite1: {fileID: 21300000, guid: 241281f5bcf46d94a9b9906a84f6fe63, type: 3}
+  GoodSprite2: {fileID: 21300000, guid: f7c18f3e96f197743a2f2244f861eb74, type: 3}
+  GoodSprite3: {fileID: 21300000, guid: 241281f5bcf46d94a9b9906a84f6fe63, type: 3}
+  Highlighted1: {fileID: 21300000, guid: 69aac1d054ff0c049b5688e6b94f04d8, type: 3}
+  Highlighted2: {fileID: 21300000, guid: 7a93ace57d44e894b8a473c2778ead6c, type: 3}
   ParticleSpray: {fileID: 1260641250617866}
   superModeActive: 0
   itemType: 0
@@ -2938,7 +2938,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 890d5ac7cfa4ce641bcbf3bf4b1837a5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: dfc5c8b173af0384ab9810be9531efc3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

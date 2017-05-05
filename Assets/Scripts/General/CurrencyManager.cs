@@ -6,30 +6,19 @@ public class CurrencyManager : MonoBehaviour {
 
 	public static int unicornSmiles;
 
-	private static CurrencyManager instance = null;
-	public static CurrencyManager Instance {
-		get{ return Instance; }
-	}
+	public static CurrencyManager currency;
+
 
 	void Awake(){
-		if (instance != null && Instance != this) {
-			Destroy (this.gameObject);
-			return;
-		} else {
-			instance = this;
+		if (currency == null) {
+			DontDestroyOnLoad (gameObject);
+			currency = this;
+		} else if (currency != this) {
+			Destroy (gameObject);
 		}
 		DontDestroyOnLoad (this.gameObject);
 
 	}
-
-
-	void Start () {
-
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+		
 		
 }

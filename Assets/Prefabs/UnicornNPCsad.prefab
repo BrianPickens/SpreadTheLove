@@ -750,8 +750,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentlyActive: 0
   triggered: 0
-  HappyUnicorn: {fileID: 21300000, guid: bc43da1fccb585942a0f02a436b70193, type: 3}
-  SadUnicorn: {fileID: 21300000, guid: bc43da1fccb585942a0f02a436b70193, type: 3}
+  HappyUnicorn: {fileID: 21300000, guid: 6771595e342202e4d8c21f87dd3f1711, type: 3}
+  SadUnicorn: {fileID: 21300000, guid: 6771595e342202e4d8c21f87dd3f1711, type: 3}
   Phrases:
   - {fileID: 1613063445767796}
   - {fileID: 1797494308288226}
@@ -774,9 +774,9 @@ MonoBehaviour:
   - {fileID: 1907760390797064}
   - {fileID: 1070155017024926}
   PhraseClips:
-  - {fileID: 8300000, guid: ea34e14b68a4fcc4caa7a4396a588d14, type: 3}
-  - {fileID: 8300000, guid: c9fe32b3c08ccd946915f8cfa68aa4c1, type: 3}
-  - {fileID: 8300000, guid: d794e51e4f235dd46bff34c448ae6449, type: 3}
+  - {fileID: 8300000, guid: 393c3c3f67e21a142bb406d432ce00ff, type: 3}
+  - {fileID: 8300000, guid: 798c50ffc2c477e45b5854934573241d, type: 3}
+  - {fileID: 8300000, guid: dc112afe3821d204ba99b5360ac40a60, type: 3}
   - {fileID: 8300000, guid: 9150d904ea63ba84eb7cf1e90bcb3df0, type: 3}
   - {fileID: 8300000, guid: 53b6672c1a7578144b03a94a57ef1c65, type: 3}
   - {fileID: 8300000, guid: a6839b3fa4bf7e941a3507e19b9a98ae, type: 3}
@@ -1456,7 +1456,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: bc43da1fccb585942a0f02a436b70193, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6771595e342202e4d8c21f87dd3f1711, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

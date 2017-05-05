@@ -30,13 +30,16 @@ public class MenuNavigation : MonoBehaviour {
 			
 	}
 
-	public void MenuToUSHOP(){
-		SceneManager.LoadScene ("UnicornShop");
-	}
-
 	public void MenuToSpread(){
 		GameObject.FindGameObjectWithTag ("SoundManager").GetComponent<SoundManager> ().PlayClickSound ();
 		GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager> ().MenuToShop ();
 		SceneManager.LoadScene ("SpreadTheLove");
 	}
+
+	public void SecretResetButton(){
+		TutorialModeScript.tutorialOff = false;
+		GameObject.FindGameObjectWithTag ("SoundManager").GetComponent<SoundManager> ().ClearSound ();
+		SceneManager.LoadScene ("Intro");
+	}
+
 }

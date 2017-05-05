@@ -21,7 +21,7 @@ public class PresentReaderScript : MonoBehaviour {
 	}
 
 	public void GeneratePresentVoice(){
-		int complimentChoice = Random.Range (0, 19);
+		int complimentChoice = Random.Range (0, 20);
 		if (!SoundManager.AudioOff) {
 			GetComponent<AudioSource> ().PlayOneShot (Phrases [complimentChoice]);
 		}

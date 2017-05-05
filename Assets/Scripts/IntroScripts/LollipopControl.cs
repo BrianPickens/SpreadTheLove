@@ -27,6 +27,10 @@ public class LollipopControl : MonoBehaviour {
 	Animator _myanim;
 
 	void Start (){
+		if (BackgroundMusic == null) {
+			BackgroundMusic = GameObject.FindGameObjectWithTag ("SoundManager");
+		}
+		BackgroundMusic.GetComponent<SoundManager> ().IntroMusicPlay ();
 		holdTime = 1f;
 		_myanim = GetComponent<Animator> ();
 		myTransform = GetComponent<Transform> ();

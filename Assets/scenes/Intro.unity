@@ -6425,7 +6425,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 505643172}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.03, y: -0.9873829, z: 0}
+  m_LocalPosition: {x: 6.85, y: -0.9873829, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 479565470}
@@ -6608,7 +6608,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 6c2b976219858474cb3c89c7d259b96d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: abdb812079030414eb7e48b1a462a319, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -6642,12 +6642,12 @@ MonoBehaviour:
   HappyParticles: {fileID: 1745248520}
   LoveParticles: {fileID: 296267509}
   CanvasTitle: {fileID: 1177920854}
-  SoundHolder: {fileID: 484609967}
+  SoundHolder: {fileID: 0}
   StarParticles: {fileID: 2114281834}
   OptionsPanel: {fileID: 1247956318}
-  HappyUnicorn: {fileID: 21300000, guid: f73f4c3ac9392784e9f04dcbeefab958, type: 3}
-  SadUnicorn: {fileID: 21300000, guid: 6c2b976219858474cb3c89c7d259b96d, type: 3}
-  LollipopUnicorn: {fileID: 21300000, guid: f73f4c3ac9392784e9f04dcbeefab958, type: 3}
+  HappyUnicorn: {fileID: 21300000, guid: ead023f999534be42ba2eec2c172497f, type: 3}
+  SadUnicorn: {fileID: 21300000, guid: abdb812079030414eb7e48b1a462a319, type: 3}
+  LollipopUnicorn: {fileID: 21300000, guid: ead023f999534be42ba2eec2c172497f, type: 3}
   Cloud: {fileID: 932423770}
   Lollipop: {fileID: 1086684240}
   LovePoof: {fileID: 8300000, guid: ae9573fc028c4fa49b9a47082f242899, type: 3}
@@ -6935,8 +6935,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 2.1514}
-  m_SizeDelta: {x: 11.12, y: 10.1}
+  m_AnchoredPosition: {x: 0, y: 2.15}
+  m_SizeDelta: {x: 8.6449, y: 7.85}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &582865119
 MonoBehaviour:
@@ -6957,7 +6957,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 4691730a5f37b9b44bbd0850f38f540e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 47db65c7c3675e1498ced2a197921633, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -7209,7 +7209,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: d8cc4bc8e396fdc48b3992e5fe156353, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0ee1eee9029155e45ae94c3bb667bc5c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -7221,7 +7221,7 @@ Transform:
   m_GameObject: {fileID: 932423770}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 12.83, y: 0.5899999, z: 0}
-  m_LocalScale: {x: 0.20911217, y: 0.2091122, z: 0.2091122}
+  m_LocalScale: {x: 0.31795484, y: 0.3179549, z: 0.3179549}
   m_Children:
   - {fileID: 237527412}
   - {fileID: 1745248521}
@@ -7239,8 +7239,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36a3f6b135409164c8f8f177efb784ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CloudHappy: {fileID: 21300000, guid: d095a56d7321cc1409bb57ee6fe668dc, type: 3}
-  CloudSad: {fileID: 21300000, guid: d8cc4bc8e396fdc48b3992e5fe156353, type: 3}
+  CloudHappy: {fileID: 21300000, guid: 2159b998df4546b4d90fbf7c96f517e5, type: 3}
+  CloudSad: {fileID: 21300000, guid: 0ee1eee9029155e45ae94c3bb667bc5c, type: 3}
 --- !u!95 &932423774
 Animator:
   serializedVersion: 3
@@ -7418,7 +7418,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: eecd3278a9a306e46a9d4fd79b032746, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b2069672922093d49861c885d2a849f9, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -7483,7 +7483,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 4
-  m_Sprite: {fileID: 21300000, guid: 1eae130af8136e0458f18e1b17c3a8c7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 925e0fc7fcecc4042b0856a5ef04e0e6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -7495,7 +7495,7 @@ Transform:
   m_GameObject: {fileID: 1086684240}
   m_LocalRotation: {x: -0, y: -0, z: 0.2602624, w: 0.96553797}
   m_LocalPosition: {x: -5.03, y: 1.8, z: 0}
-  m_LocalScale: {x: 0.39633834, y: 0.39633828, z: 0.34877768}
+  m_LocalScale: {x: 0.45975247, y: 0.4597524, z: 0.4045821}
   m_Children:
   - {fileID: 1435508419}
   m_Father: {fileID: 0}
@@ -7534,7 +7534,7 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 3.14
+  m_Radius: 2.68
 --- !u!114 &1086684245
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7552,7 +7552,7 @@ MonoBehaviour:
   StarParticles: {fileID: 1435508416}
   Unicorn: {fileID: 543599355}
   Background: {fileID: 817295494}
-  BackgroundMusic: {fileID: 484609967}
+  BackgroundMusic: {fileID: 0}
 --- !u!95 &1086684246
 Animator:
   serializedVersion: 3
@@ -7931,6 +7931,7 @@ GameObject:
   - component: {fileID: 1428039472}
   - component: {fileID: 1428039471}
   - component: {fileID: 1428039470}
+  - component: {fileID: 1428039475}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -8006,6 +8007,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1428039475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1428039469}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f47baff5e1d13745ac6d5e322ab313a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1435508416
 GameObject:
   m_ObjectHideFlags: 0
@@ -10904,7 +10916,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: eecd3278a9a306e46a9d4fd79b032746, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b2069672922093d49861c885d2a849f9, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

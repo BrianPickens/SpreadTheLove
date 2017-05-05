@@ -17,11 +17,6 @@ public class LolliPopScript : MonoBehaviour {
 		_myanim = GetComponent<Animator> ();
 		CollectableType ();
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
 
 	public void UnicornHit(){
 		GetComponent<SpriteRenderer> ().enabled = false;

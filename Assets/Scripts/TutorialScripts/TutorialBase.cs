@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class TutorialBase : MonoBehaviour {
 
-	public GameObject CandyHolder0;
 	public GameObject CandyHolder1;
 	public GameObject SpecialCollectables;
 	public GameObject Unicorn;
@@ -88,7 +87,6 @@ public class TutorialBase : MonoBehaviour {
 
 		if (movementTimerComplete) {
 			if (!candyOn) {
-				CandyHolder0.SetActive (true);
 				CandyHolder1.SetActive (true);
 				candyOn = true;
 			}
@@ -285,6 +283,19 @@ public class TutorialBase : MonoBehaviour {
 				currentTutorialScreen++;
 				if (currentTutorialScreen == 2) {
 					StartCoroutine (StartMovementTimer ());
+					switchOnCanvas (false);
+				}
+				if (currentTutorialScreen == 5) {
+					switchOnCanvas (false);
+				}
+				if (currentTutorialScreen == 7) {
+					switchOnCanvas (false);
+				}
+				if (currentTutorialScreen == 9) {
+					switchOnCanvas (false);
+				}
+				if (currentTutorialScreen == 10) {
+					switchOnCanvas (false);
 				}
 				ChangeScreen ();
 			}

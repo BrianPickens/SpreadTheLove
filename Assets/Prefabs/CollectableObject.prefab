@@ -53,7 +53,7 @@ Transform:
   m_GameObject: {fileID: 1000012799095194}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -43.63, y: 8.19, z: 0}
-  m_LocalScale: {x: 0.22, y: 0.22, z: 1}
+  m_LocalScale: {x: 0.27371126, y: 0.27371126, z: 1.2441422}
   m_Children:
   - {fileID: 4000014239772852}
   m_Father: {fileID: 0}
@@ -96,7 +96,7 @@ Animator:
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: e719ba86acf678d499958e6450ad749c, type: 2}
-  m_CullingMode: 0
+  m_CullingMode: 2
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
@@ -114,9 +114,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95e96a467504e324c8306dc3ac4553c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LolliPop: {fileID: 21300000, guid: 1eae130af8136e0458f18e1b17c3a8c7, type: 3}
-  Waffle: {fileID: 21300000, guid: 4d0cb340007d74742ac63615dc29aea8, type: 3}
-  Donut: {fileID: 21300000, guid: 5437faf88097fa94cad8d9ac0b5eb0ed, type: 3}
+  LolliPop: {fileID: 21300000, guid: 925e0fc7fcecc4042b0856a5ef04e0e6, type: 3}
+  Waffle: {fileID: 21300000, guid: a1af884a10739c1429f2c795ca55563f, type: 3}
+  Donut: {fileID: 21300000, guid: 96f7b41850d5e9e469315de5c29ee2cc, type: 3}
   identity: 0
 --- !u!212 &212000011438290292
 SpriteRenderer:
@@ -149,7 +149,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: 1eae130af8136e0458f18e1b17c3a8c7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 925e0fc7fcecc4042b0856a5ef04e0e6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

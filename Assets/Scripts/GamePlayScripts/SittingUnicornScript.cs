@@ -19,7 +19,7 @@ public class SittingUnicornScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		typeOfUnicorn = Random.Range (0, 3);
+		typeOfUnicorn = Random.Range (0, 20);
 	}
 	
 	// Update is called once per frame

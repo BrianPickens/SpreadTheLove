@@ -28,6 +28,8 @@ public class UnicornMove : MonoBehaviour {
 	public GameObject MultiplierPopUpDisplay;
 	public GameObject TutorialEndDisplay;
 
+	public GameObject _mySoundManager;
+
 	public Sprite LolliMultiplier;
 	public Sprite WaffleMultiplier;
 	public Sprite DonutMultiplier;
@@ -111,7 +113,7 @@ public class UnicornMove : MonoBehaviour {
 		_myTransform = GetComponent<Transform> ();
 		//_myanim = GetComponent<Animator> ();
 		_mySprite = GetComponent<SpriteRenderer> ();
-
+		_mySoundManager = GameObject.FindGameObjectWithTag ("SoundManager");
 	}
 
 	void Update () {
@@ -172,8 +174,8 @@ public class UnicornMove : MonoBehaviour {
 
 		//if the player makes half of the objects happy, move the music to medium
 		if (happyObjectCount > happyObjectMax / 2 && !mediumMusicOn) {
-			if (GameObject.FindGameObjectWithTag ("SoundManager") != null) {
-				GameObject.FindGameObjectWithTag ("SoundManager").GetComponent<SoundManager> ().StartMediumMusic ();
+			if (_mySoundManager != null) {
+				_mySoundManager.GetComponent<SoundManager> ().StartMediumMusic ();
 			}
 			mediumMusicOn = true;
 		}
@@ -259,15 +261,15 @@ public class UnicornMove : MonoBehaviour {
 	//turns on the small collider for crashing into things
 	public void StartSuperMode(){
 		HappyZoneUnicorn.SetActive (true);
-		if (GameObject.FindGameObjectWithTag ("SoundManager") != null) {
-			GameObject.FindGameObjectWithTag ("SoundManager").GetComponent<SoundManager> ().StartSuperModeMusic ();
+		if (_mySoundManager != null) {
+			_mySoundManager.GetComponent<SoundManager> ().StartSuperModeMusic ();
 		}
 	}
 
 	//turns off the small collider for crashing into thigns, and turns off supermode
 	public void EndSuperMode(){
-		if (GameObject.FindGameObjectWithTag ("SoundManager") != null) {
-			GameObject.FindGameObjectWithTag ("SoundManager").GetComponent<SoundManager> ().EndSuperModeMusic ();
+		if (_mySoundManager != null) {
+			_mySoundManager.GetComponent<SoundManager> ().EndSuperModeMusic ();
 		}
 		HappyZoneUnicorn.SetActive (false);
 		superMode = false;
@@ -359,24 +361,24 @@ public class UnicornMove : MonoBehaviour {
 	//reset the game
 	public void RestartGame(){
 		EndSuperMode ();
-		GameObject.FindGameObjectWithTag ("SoundManager").GetComponent<SoundManager> ().PlayClickSound ();
-		GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager> ().RestartGameMusic ();
+		_mySoundManager.GetComponent<SoundManager> ().PlayClickSound ();
+		_mySoundManager.GetComponent<SoundManager> ().RestartGameMusic ();
 		SceneManager.LoadScene ("prototype5");
 	}
 
 	//go to menu
 	public void GameToMenu(){
 		EndSuperMode ();
-		GameObject.FindGameObjectWithTag ("SoundManager").GetComponent<SoundManager> ().PlayClickSound ();
-		GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager> ().GameToMenu ();
+		_mySoundManager.GetComponent<SoundManager> ().PlayClickSound ();
+		_mySoundManager.GetComponent<SoundManager> ().GameToMenu ();
 		SceneManager.LoadScene ("Menu");
 	}
 
 	//go to Spread the Love menu
 	public void GameToSpreadLove(){
 		EndSuperMode ();
-		GameObject.FindGameObjectWithTag ("SoundManager").GetComponent<SoundManager> ().PlayClickSound ();
-		GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager> ().GameToShop ();
+		_mySoundManager.GetComponent<SoundManager> ().PlayClickSound ();
+		_mySoundManager.GetComponent<SoundManager> ().GameToShop ();
 		SceneManager.LoadScene ("SpreadTheLove");
 	}
 

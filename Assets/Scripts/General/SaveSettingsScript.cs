@@ -6,17 +6,15 @@ public class SaveSettingsScript : MonoBehaviour {
 
 	public GameObject SoundManagerHolder;
 
-	private static SaveSettingsScript instance = null;
-	public static SaveSettingsScript Instance {
-		get{ return Instance; }
-	}
+	public static SaveSettingsScript settings = null;
+
 
 	void Awake(){
-		if (instance != null && Instance != this) {
-			Destroy (this.gameObject);
-			return;
-		} else {
-			instance = this;
+		if (settings == null) {
+			DontDestroyOnLoad (gameObject);
+			settings = this;
+		} else if (settings != this) {
+			Destroy (gameObject);
 		}
 		DontDestroyOnLoad (this.gameObject);
 
@@ -50,7 +48,7 @@ public class SaveSettingsScript : MonoBehaviour {
 		NetworkScript.activeCompliment = PlayerPrefs.GetInt ("ActiveCompliments");
 		CurrencyManager.unicornSmiles = PlayerPrefs.GetInt ("UnicornSmiles");
 		TutorialModeScript.tutorialOff = (PlayerPrefs.GetInt ("TutorialOff") != 0);
-		SoundManagerHolder.GetComponent<SoundManager> ().IntroMusicPlay ();
+
 	//	Debug.Log (CurrencyManager.unicornSmiles);
 	}
 

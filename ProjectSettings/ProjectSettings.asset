@@ -6,7 +6,7 @@ PlayerSettings:
   serializedVersion: 10
   productGUID: 4c1a913b703c4d647b77b5b41492c32a
   AndroidProfiler: 0
-  defaultScreenOrientation: 2
+  defaultScreenOrientation: 3
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
@@ -125,7 +125,7 @@ PlayerSettings:
   metroInputSource: 0
   m_HolographicPauseOnTrackingLoss: 1
   xboxOneDisableKinectGpuReservation: 0
-  protectGraphicsMemory: 0
+  protectGraphicsMemory: 1
   AndroidBundleVersionCode: 1
   AndroidMinSdkVersion: 16
   AndroidPreferredInstallLocation: 1

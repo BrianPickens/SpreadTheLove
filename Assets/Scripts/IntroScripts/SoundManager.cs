@@ -34,19 +34,27 @@ public class SoundManager : MonoBehaviour {
 	private float volume3;
 	private bool mediumOn;
 
-	private static SoundManager instance = null;
-	public static SoundManager Instance {
-		get{ return Instance; }
-	}
+//	private static SoundManager instance = null;
+//	public static SoundManager Instance {
+//		get{ return Instance; }
+//	}
+	public static SoundManager sound;
 
 	void Awake(){
-		if (instance != null && Instance != this) {
-			Destroy (this.gameObject);
-			return;
-		} else {
-			instance = this;
+		if (sound == null) {
+			DontDestroyOnLoad (gameObject);
+			sound = this;
+		} else if (sound != this) {
+			Destroy (gameObject);
 		}
-		DontDestroyOnLoad (this.gameObject);
+
+//		if (instance != null && Instance != this) {
+//			Destroy (this.gameObject);
+//			return;
+//		} else {
+//			instance = this;
+//		}
+//		DontDestroyOnLoad (this.gameObject);
 
 
 	}
@@ -71,6 +79,17 @@ public class SoundManager : MonoBehaviour {
 	void Update () {
 		
 	}
+
+	public void ClearSound(){
+		RampMusicSource.Stop ();
+		LollipopLowSource.Stop ();
+		ShopMusicSource.Stop ();
+		GameMusicLow.Stop ();
+		GameMusicMedium.Stop ();
+		GameMusicHigh.Stop ();
+		TitleMusicSource.Stop ();
+	}
+
 
 	public void PlayClickSound(){
 		if (!AudioOff) {
@@ -104,6 +123,7 @@ public class SoundManager : MonoBehaviour {
 		} else {
 			masterMixer.SetFloat ("MasterVolume", -80f);
 		}
+		masterMixer.SetFloat ("MusicLollipop", 0);
 		LollipopLowSource.Play ();
 	}
 

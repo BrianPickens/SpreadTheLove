@@ -12,8 +12,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/scenes/prototype5.unity
   - enabled: 1
-    path: Assets/scenes/UnicornShop.unity
-  - enabled: 1
     path: Assets/scenes/SpreadTheLove.unity
   - enabled: 1
     path: Assets/scenes/Tutorial.unity

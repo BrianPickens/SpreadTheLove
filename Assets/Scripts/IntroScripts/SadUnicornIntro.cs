@@ -27,6 +27,9 @@ public class SadUnicornIntro : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		if (SoundHolder == null) {
+			SoundHolder = GameObject.FindGameObjectWithTag ("SoundManager");
+		}
 		_myanim = GetComponent<Animator> ();
 	}
 
